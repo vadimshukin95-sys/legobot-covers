@@ -1,0 +1,36 @@
+name: Сборка десктопной рассылки
+
+on:
+  push:
+    paths: ["mailer/**", ".github/workflows/build-mailer.yml"]
+  workflow_dispatch:
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        include:
+          - os: windows-latest
+            artifact: LegoBotMailer-Windows
+          - os: macos-latest
+            artifact: LegoBotMailer-macOS
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pyinstaller
+      - name: Build
+        working-directory: mailer
+        run: pyinstaller --noconfirm --onefile --windowed --name LegoBotMailer mailer_gui.py
+      - name: Pack macOS app
+        if: runner.os == 'macOS'
+        working-directory: mailer/dist
+        run: rm -f LegoBotMailer && ditto -c -k --keepParent LegoBotMailer.app LegoBotMailer.zip && rm -rf LegoBotMailer.app
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.artifact }}
+          path: |
+            mailer/dist/*
+            mailer/clients.example.csv
