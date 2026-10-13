@@ -29,3 +29,6 @@
 
 /* мобильное меню Tilda (t1272): опустить под полосу */
 @media (max-width:960px){html.lbp-on .tmenu-mobile_positionfixed{top:var(--lbp-hm,0px)!important}html.lbp-on .t-menu-base.tmenu-mobile__menucontent_fixed{margin-top:var(--lbp-hm,0px)!important}}
+/* иконка корзины Tilda (t706): под полосу; на телефоне — под шапку, чтобы не закрывала меню */
+html.lbp-on .t706__carticon{top:calc(50px + var(--lbp-h,0px))!important}
+@media (max-width:960px){html.lbp-on .t706__carticon{top:calc(var(--lbp-hm,0px) + var(--lbp-mm,64px) + 12px)!important}}
