@@ -8,9 +8,9 @@
     if(document.getElementById('lbHw')) return; var old=document.getElementById('lbSpike'); if(old) old.parentNode.removeChild(old);
     var box=document.createElement('div'); box.innerHTML=HTML; var el=box.firstElementChild;
     var root=document.getElementById('allrecords')||document.body; root.insertBefore(el, root.firstChild);
-    var R=document.documentElement; function fit(){ R.style.setProperty('--lbp-h',(window.innerWidth>960?el.offsetHeight:0)+'px'); }
-    function off(){ R.classList.remove('lbp-on'); R.style.removeProperty('--lbp-h'); window.removeEventListener('resize',fit); }
-    R.classList.add('lbp-on'); fit(); window.addEventListener('resize',fit);
+    var R=document.documentElement; function fit(){ R.style.setProperty('--lbp-h',(window.innerWidth>960?el.offsetHeight:0)+'px'); R.style.setProperty('--lbp-hm',el.offsetHeight+'px'); }
+    function off(){ R.classList.remove('lbp-on'); R.style.removeProperty('--lbp-h'); R.style.removeProperty('--lbp-hm'); window.removeEventListener('resize',fit); }
+    R.classList.add('lbp-on'); fit(); window.addEventListener('resize',fit); window.addEventListener('load',fit); setTimeout(fit,1500);
     document.getElementById('lbHwLink').href=PROMO.url;
     var d=lbhwDays(), dd=document.getElementById('lbHwD'); if(dd) dd.innerHTML=d?('до Хэллоуина<strong>'+d+' '+lbhwW(d)+'</strong>'):'Хэллоуин<strong>сегодня!</strong>';
     document.getElementById('lbHwX').onclick=function(){ el.parentNode.removeChild(el); off(); };

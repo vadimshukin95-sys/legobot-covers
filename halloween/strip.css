@@ -26,3 +26,6 @@
 @media (max-width:960px){.lbhw__models,.lbhw__bat{display:none}}
 @media (max-width:760px){.lbhw{height:64px}.lbhw__in{gap:10px;padding:0 40px 0 12px}.lbhw__d{display:none}.lbhw__moon{width:30px;height:30px}.lbhw__t b{font-size:15px;text-shadow:1px 1px 0 #FF8A1F,2px 2px 0 #B85500,3px 3px 0 #B85500}.lbhw__t span{font-size:12px}.lbhw__cta{font-size:13px;padding:9px 14px}}
 @media (prefers-reduced-motion:reduce){.lbhw *,.lbhw *:after{animation:none!important;transition:none!important}}
+
+/* мобильное меню Tilda (t1272): опустить под полосу */
+@media (max-width:960px){html.lbp-on .tmenu-mobile_positionfixed{top:var(--lbp-hm,0px)!important}html.lbp-on .t-menu-base.tmenu-mobile__menucontent_fixed{margin-top:var(--lbp-hm,0px)!important}}
