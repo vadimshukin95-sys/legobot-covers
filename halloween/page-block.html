@@ -1,0 +1,110 @@
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@800;900&display=swap" rel="stylesheet">
+<style>
+.hw{--ink:#2E3338;--muted:#D2CBF0;--pump:#FF8A1F;--pumpd:#B85500;--green:#4CAF2E;--greend:#2F7E19;background:radial-gradient(900px 520px at 78% 0%,#4B3C8C 0%,rgba(75,60,140,0) 65%),linear-gradient(180deg,#211B45 0%,#2A2253 50%,#211B45 100%);color:#fff;font-family:'TildaSans',Arial,sans-serif;position:relative;overflow:hidden}
+.hw *{box-sizing:border-box}
+.hw a{text-decoration:none}
+.hw-hero{position:relative;max-width:1160px;margin:0 auto;padding:110px 20px 80px;min-height:560px}
+.hw-hero__in{position:relative;z-index:2;max-width:640px}
+.hw-deco{position:absolute;inset:0;z-index:1;pointer-events:none}
+.hw-stars{position:absolute;inset:0;background-image:radial-gradient(2px 2px at 12% 22%,#fff9,transparent),radial-gradient(1.5px 1.5px at 48% 12%,#fffa,transparent),radial-gradient(2px 2px at 92% 58%,#fff8,transparent),radial-gradient(1.5px 1.5px at 66% 84%,#fff7,transparent),radial-gradient(1.5px 1.5px at 38% 74%,#fff6,transparent),radial-gradient(2px 2px at 58% 40%,#fff6,transparent)}
+.hw-moon{position:absolute;right:110px;top:70px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#FFF4B8,#FFD23F 60%,#F2B400);box-shadow:0 0 140px 40px rgba(255,210,63,.22)}
+.hw-moon:after{content:'';position:absolute;left:62px;top:130px;width:48px;height:48px;border-radius:50%;background:rgba(220,160,0,.3);box-shadow:100px -50px 0 -8px rgba(220,160,0,.28),120px 56px 0 -14px rgba(220,160,0,.28)}
+.hw-bats{position:absolute;right:0;top:50px;width:520px}
+.hw-brick{position:absolute}.hw-brick svg{display:block;width:100%;height:auto;filter:drop-shadow(0 10px 14px rgba(0,0,0,.3))}
+.hw-brick--1{right:40px;top:290px;width:220px;transform:rotate(-6deg)}.hw-brick--2{right:290px;top:400px;width:120px;transform:rotate(8deg)}
+.hw h1{font-family:'Unbounded',sans-serif;font-weight:900;font-size:56px;line-height:1.1;margin:0 0 24px;color:#fff;text-shadow:1px 1px 0 #FF8A1F,2px 2px 0 #FF8A1F,3px 3px 0 #FF8A1F,4px 4px 0 #FF8A1F,5px 5px 0 #B85500,6px 6px 0 #B85500,7px 7px 0 #B85500,10px 14px 20px rgba(0,0,0,.3);letter-spacing:-.5px}
+.hw h1 small{display:block;font-size:26px;line-height:1.3;font-weight:800;text-shadow:1px 1px 0 #FF8A1F,2px 2px 0 #FF8A1F,3px 3px 0 #B85500,4px 4px 0 #B85500,6px 8px 12px rgba(0,0,0,.3);margin-top:14px}
+.hw-lead{font-size:19px;line-height:1.6;color:var(--muted);margin:0 0 26px;max-width:580px}
+.hw-chips{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 32px;padding:0;list-style:none}
+.hw-chips li{background:rgba(255,255,255,.1);color:#FFD9B0;padding:8px 15px;border-radius:999px;font-weight:600;font-size:15px}
+.hw-btns{display:flex;gap:14px;flex-wrap:wrap}
+.hw-b1{display:inline-block;background:var(--green);color:#fff!important;font-weight:700;font-size:17px;padding:16px 26px;border-radius:14px;box-shadow:0 5px 0 var(--greend);transition:transform .15s}
+.hw-b1:hover{transform:translateY(-2px)}
+.hw-b2{display:inline-block;color:#fff!important;font-weight:700;font-size:17px;padding:14px 24px;border-radius:14px;border:2px solid rgba(255,255,255,.6)}
+.hw-b1:focus-visible,.hw-b2:focus-visible,.hw summary:focus-visible{outline:3px solid #FFD23F;outline-offset:3px}
+.hw-sec{max-width:1160px;margin:0 auto;padding:10px 20px 70px;position:relative;z-index:2}
+.hw h2{font-family:'Unbounded',sans-serif;font-weight:800;font-size:32px;line-height:1.2;margin:0 0 12px;color:#FFB25C}
+.hw-sub{font-size:17px;line-height:1.6;color:var(--muted);margin:0 0 28px;max-width:720px}
+.hw-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.hw-card{background:#fff;color:var(--ink);border-radius:20px;padding:12px 12px 20px;display:flex;flex-direction:column;box-shadow:0 14px 34px rgba(0,0,0,.35)}
+.hw-card img{width:100%;border-radius:12px;display:block;aspect-ratio:1/1;height:auto;object-fit:cover;background:#2A2253}
+.hw-card__lab{font-size:13px;font-weight:700;color:#3E9A22;margin:14px 4px 4px}
+.hw-card h3{font-family:'Unbounded',sans-serif;font-weight:800;font-size:19px;line-height:1.25;margin:0 4px 8px}
+.hw-card p{font-size:15px;line-height:1.5;color:#5A636B;margin:0 4px 10px;flex:1}
+.hw-card__meta{font-size:14px;color:#7A8288;margin:0 4px 14px}
+.hw-card__buy{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 4px}
+.hw-price{font-family:'Unbounded',sans-serif;font-weight:800;font-size:22px;color:var(--ink)}
+.hw-price s{font-family:'TildaSans',Arial,sans-serif;font-weight:400;font-size:16px;color:#9AA0A6;margin-left:6px}
+.hw-card .hw-b1{font-size:15px;padding:11px 16px;border-radius:12px;box-shadow:0 4px 0 var(--greend)}
+.hw-kit{display:grid;grid-template-columns:360px 1fr;gap:34px;align-items:center;background:#fff;color:var(--ink);border-radius:24px;padding:22px;box-shadow:0 0 0 3px var(--pump),0 14px 34px rgba(0,0,0,.35)}
+.hw-kit img{width:100%;height:auto;border-radius:16px;display:block;aspect-ratio:1/1;object-fit:cover}
+.hw-tag{display:inline-block;background:var(--pump);color:#fff;font-weight:700;font-size:14px;padding:6px 12px;border-radius:8px;margin-bottom:14px}
+.hw-kit h3{font-family:'Unbounded',sans-serif;font-weight:800;font-size:28px;line-height:1.2;margin:0 0 12px}
+.hw-kit p{font-size:17px;line-height:1.6;color:#4B545C;margin:0 0 18px;max-width:560px}
+.hw-kit .hw-price{font-size:30px;margin-right:18px}
+.hw-kit__buy{display:flex;align-items:center;flex-wrap:wrap;gap:14px}
+.hw-inside{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.hw-inside figure{margin:0;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:12px}
+.hw-inside img{width:100%;height:auto;display:block;border-radius:10px;aspect-ratio:16/9;object-fit:cover}
+.hw-inside figcaption{font-size:16px;line-height:1.5;color:var(--muted);padding:12px 4px 2px}
+.hw-inside b{color:#fff;display:block;font-size:17px;margin-bottom:2px}
+.hw-steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:14px;counter-reset:s}
+.hw-steps li{counter-increment:s;background:rgba(255,255,255,.06);border-radius:16px;padding:18px 16px;border-top:4px solid var(--pump)}
+.hw-steps li:before{content:counter(s);font-family:'Unbounded',sans-serif;font-weight:800;font-size:15px;color:#211B45;background:#FFD23F;width:30px;height:30px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;margin-bottom:10px}
+.hw-steps b{display:block;font-size:17px;margin-bottom:2px}
+.hw-steps i{display:block;font-style:normal;color:#FFB25C;font-weight:700;font-size:14px;margin-bottom:6px}
+.hw-steps span{font-size:15px;line-height:1.5;color:var(--muted)}
+.hw-faq details{max-width:820px}
+.hw-faq details{background:rgba(255,255,255,.06);border-radius:14px;margin:0 0 10px;padding:0 20px}
+.hw-faq summary{cursor:pointer;font-weight:700;font-size:17px;padding:18px 0;list-style:none;position:relative;padding-right:30px}
+.hw-faq summary::-webkit-details-marker{display:none}
+.hw-faq summary:after{content:'+';position:absolute;right:0;top:14px;font-size:24px;color:#FFB25C}
+.hw-faq details[open] summary:after{content:'–'}
+.hw-faq details div{font-size:16px;line-height:1.6;color:var(--muted);padding:0 0 18px}
+@media(max-width:1100px){.hw-grid{grid-template-columns:repeat(2,1fr)}.hw-steps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:760px){
+ .hw-hero{padding:190px 16px 48px;min-height:0}
+ .hw h1{font-size:32px;text-shadow:1px 1px 0 #FF8A1F,2px 2px 0 #FF8A1F,3px 3px 0 #B85500,4px 4px 0 #B85500,6px 8px 12px rgba(0,0,0,.3)}.hw h1 small{font-size:19px}
+ .hw-lead{font-size:17px}
+ .hw-moon{right:20px;top:24px;width:130px;height:130px}.hw-moon:after{display:none}
+ .hw-bats{width:240px;top:20px}
+ .hw-brick--1{right:16px;top:86px;width:120px}.hw-brick--2{right:170px;top:110px;width:70px}
+ .hw-sec{padding:0 16px 48px}.hw h2{font-size:24px}
+ .hw-grid,.hw-inside{grid-template-columns:1fr;gap:18px}
+ .hw-kit{grid-template-columns:1fr;gap:16px;padding:14px}.hw-kit h3{font-size:22px}
+ .hw-steps{grid-template-columns:1fr}
+ .hw-btns .hw-b1,.hw-btns .hw-b2{width:100%;text-align:center}
+}
+@media(prefers-reduced-motion:reduce){.hw-b1{transition:none}}
+</style>
+<section class="hw">
+<div class="hw-hero"><div class="hw-deco" aria-hidden="true"><div class="hw-stars"></div><div class="hw-moon"></div>
+<svg class="hw-bats" viewBox="0 0 400 260" fill="#14102C"><g transform="translate(10,40) scale(3)"><path d="M0 10 Q6 0 11 7 Q13 2 15 6 Q17 2 19 7 Q24 0 30 10 Q24 8 21 12 Q18 9 15 14 Q12 9 9 12 Q6 8 0 10Z"/></g><g transform="translate(250,0) scale(2.2)"><path d="M0 10 Q6 0 11 7 Q13 2 15 6 Q17 2 19 7 Q24 0 30 10 Q24 8 21 12 Q18 9 15 14 Q12 9 9 12 Q6 8 0 10Z"/></g><g transform="translate(310,170) scale(1.5)"><path d="M0 10 Q6 0 11 7 Q13 2 15 6 Q17 2 19 7 Q24 0 30 10 Q24 8 21 12 Q18 9 15 14 Q12 9 9 12 Q6 8 0 10Z"/></g></svg>
+<div class="hw-brick hw-brick--1"><svg viewBox="0 0 170 130" width="220" aria-hidden="true"><defs><filter id="hwg1" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><path d="M84 6 q2 -6 9 -5" stroke="#3E8E22" stroke-width="5" fill="none" stroke-linecap="round"/><rect x="22" y="10" width="20" height="14" rx="3" fill="#D96A06"/><rect x="22" y="8" width="20" height="6" rx="3" fill="#FF8A1F"/><rect x="58" y="10" width="20" height="14" rx="3" fill="#D96A06"/><rect x="58" y="8" width="20" height="6" rx="3" fill="#FF8A1F"/><rect x="94" y="10" width="20" height="14" rx="3" fill="#D96A06"/><rect x="94" y="8" width="20" height="6" rx="3" fill="#FF8A1F"/><rect x="130" y="10" width="20" height="14" rx="3" fill="#D96A06"/><rect x="130" y="8" width="20" height="6" rx="3" fill="#FF8A1F"/><rect x="10" y="22" width="152" height="100" rx="8" fill="#D96A06"/><rect x="10" y="22" width="144" height="100" rx="8" fill="#FF8A1F"/><g fill="#FFE066" filter="url(#hwg1)"><path d="M38 62 L54 40 L70 62Z"/><path d="M96 62 L112 40 L128 62Z"/><path d="M34 80 H134 Q128 108 84 110 Q40 108 34 80Z M50 80 v10 h12 v-10z M74 80 v10 h12 v-10z M98 80 v10 h12 v-10z" fill-rule="evenodd"/></g></svg></div><div class="hw-brick hw-brick--2"><svg viewBox="0 0 170 130" width="120" aria-hidden="true"><defs><filter id="hwg2" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><path d="M84 6 q2 -6 9 -5" stroke="#3E8E22" stroke-width="5" fill="none" stroke-linecap="round"/><rect x="22" y="10" width="20" height="14" rx="3" fill="#E07D1D"/><rect x="22" y="8" width="20" height="6" rx="3" fill="#FF9F43"/><rect x="58" y="10" width="20" height="14" rx="3" fill="#E07D1D"/><rect x="58" y="8" width="20" height="6" rx="3" fill="#FF9F43"/><rect x="94" y="10" width="20" height="14" rx="3" fill="#E07D1D"/><rect x="94" y="8" width="20" height="6" rx="3" fill="#FF9F43"/><rect x="130" y="10" width="20" height="14" rx="3" fill="#E07D1D"/><rect x="130" y="8" width="20" height="6" rx="3" fill="#FF9F43"/><rect x="10" y="22" width="152" height="100" rx="8" fill="#E07D1D"/><rect x="10" y="22" width="144" height="100" rx="8" fill="#FF9F43"/><g fill="#FFE066" filter="url(#hwg2)"><path d="M38 62 L54 40 L70 62Z"/><path d="M96 62 L112 40 L128 62Z"/><path d="M34 80 H134 Q128 108 84 110 Q40 108 34 80Z M50 80 v10 h12 v-10z M74 80 v10 h12 v-10z M98 80 v10 h12 v-10z" fill-rule="evenodd"/></g></svg></div></div>
+<div class="hw-hero__in"><h1>Сладость или гадость!<small>Мастер-классы на Хэллоуин по робототехнике LEGO</small></h1>
+<p class="hw-lead">Четыре готовых праздничных мастер-класса на 45 минут — для WeDo 2.0, SPIKE Prime, SPIKE Essential и EV3. Дети собирают модель-сторожа конфет и программируют её. Вам остаётся открыть презентацию.</p>
+<ul class="hw-chips"><li>4 набора LEGO Education</li><li>Сборка и программы в слайдах</li><li>Материалы сразу после оплаты</li></ul>
+<div class="hw-btns"><a class="hw-b1" href="#hw-choose">Выбрать мастер-класс</a><a class="hw-b2" href="https://legobot.ru/tproduct/2345240381-923752522283-komplekt-sladost-ili-gadost-4-master-kla">Комплект за 990 ₽</a></div></div></div>
+
+<div class="hw-sec" id="hw-choose"><h2>Выберите свой набор</h2><p class="hw-sub">Сюжет один на всех — «Сладость или гадость!», а модель, датчик и программа свои для каждого конструктора. В каждом мастер-классе: презентация в PowerPoint и PDF со сборкой и программами, методика проведения в Word.</p>
+<div class="hw-grid"><article class="hw-card"><a href="https://legobot.ru/tproduct/2345240381-995438809593-master-klass-sladost-ili-gadost-lego-wed" tabindex="-1" aria-hidden="true"><img src="https://static.tildacdn.com/stor3135-6163-4238-b662-636361656238/27be6696f8fd4a2eb3a089a034344b9e.jpg" alt="Мастер-класс «Сладость или гадость!» для LEGO® Education WeDo 2.0" loading="lazy" width="600" height="600"></a>
+<div class="hw-card__lab">LEGO® Education WeDo 2.0</div><h3>Призрак-ловушка</h3><p>Датчик движения замечает руку у миски, и мотор через шестерни поднимает призрака из-за тыквы.</p><div class="hw-card__meta">8–12 лет · набор 45300 · 45 минут</div>
+<div class="hw-card__buy"><span class="hw-price">390 ₽</span><a class="hw-b1" href="https://legobot.ru/tproduct/2345240381-995438809593-master-klass-sladost-ili-gadost-lego-wed">Купить</a></div></article><article class="hw-card"><a href="https://legobot.ru/tproduct/2345240381-625271246443-master-klass-sladost-ili-gadost-lego-spi" tabindex="-1" aria-hidden="true"><img src="https://static.tildacdn.com/stor3763-6630-4263-b837-303534333736/0ec4032d5e283c5cb48daf994ea46392.jpg" alt="Мастер-класс «Сладость или гадость!» для LEGO® Education SPIKE™ Prime" loading="lazy" width="600" height="600"></a>
+<div class="hw-card__lab">LEGO® Education SPIKE™ Prime</div><h3>Летучая мышь-сторож</h3><p>Хаб превращается в тыкву с рожицей, датчик расстояния слышит гостя — и мышь взлетает.</p><div class="hw-card__meta">8–12 лет · набор 45678 · 45 минут</div>
+<div class="hw-card__buy"><span class="hw-price">390 ₽</span><a class="hw-b1" href="https://legobot.ru/tproduct/2345240381-625271246443-master-klass-sladost-ili-gadost-lego-spi">Купить</a></div></article><article class="hw-card"><a href="https://legobot.ru/tproduct/2345240381-386546524403-master-klass-sladost-ili-gadost-lego-spi" tabindex="-1" aria-hidden="true"><img src="https://static.tildacdn.com/stor6138-6538-4166-b733-626166313135/399f5067b6d6de8b47d19714d2aa1e8b.jpg" alt="Мастер-класс «Сладость или гадость!» для LEGO® Education SPIKE™ Essential" loading="lazy" width="600" height="600"></a>
+<div class="hw-card__lab">LEGO® Education SPIKE™ Essential</div><h3>Тыква-угадайка</h3><p>Датчик цвета пробует «конфету»: жёлтая — тыква снимает шляпу, красная — сердито клацает.</p><div class="hw-card__meta">6–10 лет · набор 45345 · 45 минут</div>
+<div class="hw-card__buy"><span class="hw-price">390 ₽</span><a class="hw-b1" href="https://legobot.ru/tproduct/2345240381-386546524403-master-klass-sladost-ili-gadost-lego-spi">Купить</a></div></article><article class="hw-card"><a href="https://legobot.ru/tproduct/2345240381-544329549743-master-klass-sladost-ili-gadost-lego-min" tabindex="-1" aria-hidden="true"><img src="https://static.tildacdn.com/stor3831-3530-4539-b164-306264616665/233180feeca02c33c27d2db0ec5c90b2.jpg" alt="Мастер-класс «Сладость или гадость!» для LEGO® MINDSTORMS® EV3" loading="lazy" width="600" height="600"></a>
+<div class="hw-card__lab">LEGO® MINDSTORMS® EV3</div><h3>Пугало-страж</h3><p>Ультразвуковой датчик видит гостя ближе 20 см — пугало вскидывает руки и хохочет. Программы в Scratch.</p><div class="hw-card__meta">10–14 лет · набор 45544 · 45 минут</div>
+<div class="hw-card__buy"><span class="hw-price">390 ₽</span><a class="hw-b1" href="https://legobot.ru/tproduct/2345240381-544329549743-master-klass-sladost-ili-gadost-lego-min">Купить</a></div></article></div></div>
+
+<div class="hw-sec"><div class="hw-kit"><a href="https://legobot.ru/tproduct/2345240381-923752522283-komplekt-sladost-ili-gadost-4-master-kla" tabindex="-1" aria-hidden="true"><img src="https://static.tildacdn.com/stor6661-6665-4231-b430-646161353833/7dee36c535b60ca4a08eeb4258a21771.jpg" alt="Комплект из четырёх мастер-классов «Сладость или гадость!»" loading="lazy" width="600" height="600"></a>
+<div><span class="hw-tag">Выгоднее на 570 ₽</span><h3>Комплект: все 4 мастер-класса</h3><p>Если в клубе есть разные наборы, каждая группа соберёт свою модель, а праздник будет общим. Или проведите праздничную неделю: каждый день — новый мастер-класс.</p>
+<div class="hw-kit__buy"><span class="hw-price">990 ₽<s>1560 ₽</s></span><a class="hw-b1" href="https://legobot.ru/tproduct/2345240381-923752522283-komplekt-sladost-ili-gadost-4-master-kla">Купить комплект</a></div></div></div></div>
+
+<div class="hw-sec"><h2>Что внутри</h2><p class="hw-sub">Настоящие слайды из мастер-классов. Заметки для ведущего есть к каждому слайду.</p><div class="hw-inside"><figure><img src="https://static.tildacdn.com/stor3834-3831-4465-a638-333431366534/10f036432ee664acde3459bc9bd7ce28.jpg" alt="Сборка прямо в слайдах — слайд мастер-класса" loading="lazy" width="1280" height="720"><figcaption><b>Сборка прямо в слайдах</b>Каждый шаг — отдельный слайд со списком деталей и подсказкой для ведущего.</figcaption></figure><figure><img src="https://static.tildacdn.com/stor3363-3936-4136-b766-663163343563/f495592e02650a8508ff16c3f19d9643.jpg" alt="Программы из настоящих блоков — слайд мастер-класса" loading="lazy" width="1280" height="720"><figcaption><b>Программы из настоящих блоков</b>Три задания от простого к сложному — блоки сняты из реальной среды программирования.</figcaption></figure><figure><img src="https://static.tildacdn.com/stor3036-3163-4632-a566-303232653062/1e21e38f07b8461a3ce1dafb3753371d.jpg" alt="Сюжет, который держит внимание — слайд мастер-класса" loading="lazy" width="1280" height="720"><figcaption><b>Сюжет, который держит внимание</b>Письмо «кто-то таскает конфеты!», вопрос классу и игра в финале.</figcaption></figure></div></div>
+
+<div class="hw-sec"><h2>Как пройдёт мастер-класс</h2><p class="hw-sub">45 минут, дети работают в парах. Методика расписывает каждый этап по минутам.</p><ol class="hw-steps"><li><b>Встреча</b><i>5 мин</i><span>Письмо «кто-то таскает конфеты!» и вопрос, который дети решат к концу.</span></li><li><b>Узнаём</b><i>5 мин</i><span>Как работает датчик и мотор — на примерах из жизни и из Хэллоуина.</span></li><li><b>Собираем</b><i>20 мин</i><span>Пошаговая сборка прямо по слайдам, в парах.</span></li><li><b>Программируем</b><i>10 мин</i><span>Три задания из настоящих блоков: от простого движения до сторожа конфет.</span></li><li><b>Играем</b><i>5 мин</i><span>Праздничная игра с моделями и фото на память.</span></li></ol></div>
+
+<div class="hw-sec hw-faq"><h2>Частые вопросы</h2><details><summary>Какой мастер-класс выбрать?</summary><div>Тот, что подходит к вашему набору: WeDo 2.0 (45300), SPIKE Prime (45678), SPIKE Essential (45345) или EV3 (45544). Если в клубе несколько наборов, выгоднее комплект из четырёх мастер-классов за 990 ₽.</div></details><details><summary>Нужны ли дополнительные детали?</summary><div>Нет. Каждая модель собирается из одного базового набора. Для игры понадобится только миска с конфетами — или кубики LEGO вместо них.</div></details><details><summary>Что я получу после оплаты?</summary><div>Письмо со ссылкой на папку: презентация в PowerPoint и PDF со сборкой и программами, методика проведения в Word. Для EV3 — ещё готовые проекты Scratch. Доступ не ограничен по времени.</div></details><details><summary>Справлюсь, если ни разу не вёл мастер-классы?</summary><div>Да. В методике расписан ход занятия по минутам и сценарий по слайдам, а в заметках к каждому слайду — что сказать детям и где они обычно ошибаются.</div></details><details><summary>Успею к 31 октября?</summary><div>Да. Материалы приходят на почту сразу после оплаты, обычно в течение нескольких минут, поэтому мастер-класс можно провести в тот же день.</div></details></div>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Какой мастер-класс выбрать?", "acceptedAnswer": {"@type": "Answer", "text": "Тот, что подходит к вашему набору: WeDo 2.0 (45300), SPIKE Prime (45678), SPIKE Essential (45345) или EV3 (45544). Если в клубе несколько наборов, выгоднее комплект из четырёх мастер-классов за 990 ₽."}}, {"@type": "Question", "name": "Нужны ли дополнительные детали?", "acceptedAnswer": {"@type": "Answer", "text": "Нет. Каждая модель собирается из одного базового набора. Для игры понадобится только миска с конфетами — или кубики LEGO вместо них."}}, {"@type": "Question", "name": "Что я получу после оплаты?", "acceptedAnswer": {"@type": "Answer", "text": "Письмо со ссылкой на папку: презентация в PowerPoint и PDF со сборкой и программами, методика проведения в Word. Для EV3 — ещё готовые проекты Scratch. Доступ не ограничен по времени."}}, {"@type": "Question", "name": "Справлюсь, если ни разу не вёл мастер-классы?", "acceptedAnswer": {"@type": "Answer", "text": "Да. В методике расписан ход занятия по минутам и сценарий по слайдам, а в заметках к каждому слайду — что сказать детям и где они обычно ошибаются."}}, {"@type": "Question", "name": "Успею к 31 октября?", "acceptedAnswer": {"@type": "Answer", "text": "Да. Материалы приходят на почту сразу после оплаты, обычно в течение нескольких минут, поэтому мастер-класс можно провести в тот же день."}}]}</script>
+</section>
