@@ -1,0 +1,44 @@
+<style>.lbhc{font-family:'TildaSans',Arial,sans-serif;padding:10px 20px 30px}
+.lbhc *{box-sizing:border-box}
+.lbhc__card{max-width:1180px;margin:0 auto;border-radius:28px;overflow:hidden;position:relative;color:#fff;padding:40px 44px;background:radial-gradient(500px 300px at 92% 0%,rgba(255,210,63,.35),transparent 70%),linear-gradient(135deg,#221C44,#3A2C70);box-shadow:0 20px 50px rgba(34,28,68,.25)}
+.lbhc__top{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap;margin-bottom:26px}
+.lbhc h2{font-family:'Unbounded','TildaSans',Arial,sans-serif;font-weight:900;font-size:38px;line-height:1.12;margin:0 0 10px;color:#fff;text-shadow:1px 1px 0 #FF8A1F,2px 2px 0 #FF8A1F,3px 3px 0 #FF8A1F,4px 4px 0 #B85500,5px 5px 0 #B85500}
+.lbhc p{font-size:17px;color:#D2CBF0;margin:0;max-width:600px;line-height:1.55}
+.lbhc__timer{display:flex;gap:8px;align-items:center}
+.lbhc__timer div{background:#FFD23F;color:#211B45;border-radius:14px;padding:10px 14px;text-align:center;min-width:72px}
+.lbhc__timer b{display:block;font-family:'Unbounded','TildaSans',Arial,sans-serif;font-size:28px;line-height:1}.lbhc__timer span{font-size:12px;font-weight:700}
+.lbhc__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:26px}
+.lbhc__it{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:12px 12px 14px;text-align:center;text-decoration:none!important;color:#fff!important;transition:transform .15s,background .15s}
+.lbhc__it:hover{transform:translateY(-3px);background:rgba(255,255,255,.12)}
+.lbhc__it.is-main{border:2px solid #FF8A1F}
+.lbhc__it figure{margin:0 0 10px;height:150px;display:flex;align-items:flex-end;justify-content:center;background:radial-gradient(circle at 50% 70%,rgba(255,210,63,.35),transparent 65%)}
+.lbhc__it img{max-height:140px;max-width:90%;width:auto;height:auto;filter:drop-shadow(0 10px 12px rgba(0,0,0,.45))}
+.lbhc__it small{display:block;color:#9BEA5A;font-weight:700;font-size:13px}.lbhc__it b{font-size:16px}
+.lbhc__cta{display:inline-block;background:#FF8A1F;color:#fff!important;font-weight:800;font-size:17px;padding:15px 26px;border-radius:14px;box-shadow:0 5px 0 #B85500;text-decoration:none!important}
+.lbhc__cta:focus-visible,.lbhc__it:focus-visible{outline:3px solid #FFD23F;outline-offset:3px}
+.lbhc__pk{position:absolute;right:30px;bottom:24px;transform:rotate(-8deg)}
+@keyframes lbhcFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes lbhcSway{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(4deg) translateY(-4px)}}
+@keyframes lbhcFlick{0%,100%{opacity:1}45%{opacity:.55}50%{opacity:1}70%{opacity:.75}}
+@keyframes lbhcFly{0%{transform:translate(0,0)}50%{transform:translate(-60px,14px)}100%{transform:translate(0,0)}}
+@keyframes lbhcFlap{0%,100%{transform:scaleY(1)}50%{transform:scaleY(.45)}}
+@keyframes lbhcShine{0%,70%{left:-60%}100%{left:130%}}
+.lbhc__it img{animation:lbhcFloat 3s ease-in-out infinite}
+.lbhc__it:nth-child(2) img{animation-delay:.5s}.lbhc__it:nth-child(3) img{animation-delay:1s}.lbhc__it:nth-child(4) img{animation-delay:1.5s}
+.lbhc__pk{animation:lbhcSway 3.4s ease-in-out infinite;transform-origin:50% 100%}.lbhc__pk g{animation:lbhcFlick 2.2s ease-in-out infinite}
+.lbhc__bat{position:absolute;width:46px;fill:#14102C;opacity:.85;animation:lbhcFly 7s ease-in-out infinite}.lbhc__bat path{animation:lbhcFlap .35s ease-in-out infinite;transform-origin:50% 50%}
+.lbhc__bat--2{width:32px;animation-duration:9s;animation-direction:reverse}
+.lbhc__cta{position:relative;overflow:hidden}.lbhc__cta:after{content:'';position:absolute;top:0;bottom:0;width:40%;left:-60%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.5),transparent);animation:lbhcShine 3.6s ease-in-out infinite}
+@media (max-width:900px){.lbhc{padding:10px 12px 24px}.lbhc__card{padding:26px 18px}.lbhc h2{font-size:26px;text-shadow:1px 1px 0 #FF8A1F,2px 2px 0 #B85500,3px 3px 0 #B85500}.lbhc__grid{grid-template-columns:repeat(2,1fr)}.lbhc__it figure{height:110px}.lbhc__it img{max-height:100px}.lbhc__pk{display:none}.lbhc__timer div{min-width:60px;padding:8px 10px}.lbhc__timer b{font-size:22px}.lbhc__cta{display:block;text-align:center}}
+@media (prefers-reduced-motion:reduce){.lbhc *,.lbhc *:after{animation:none!important;transition:none!important}}</style>
+<section class="lbhc" id="lbh-halloween"><div class="lbhc__card"><svg class="lbhc__bat" style="right:300px;top:22px" viewBox="0 0 30 14" aria-hidden="true"><path d="M0 10 Q6 0 11 7 Q13 2 15 6 Q17 2 19 7 Q24 0 30 10 Q24 8 21 12 Q18 9 15 14 Q12 9 9 12 Q6 8 0 10Z"/></svg><svg class="lbhc__bat lbhc__bat--2" style="right:180px;top:70px" viewBox="0 0 30 14" aria-hidden="true"><path d="M0 10 Q6 0 11 7 Q13 2 15 6 Q17 2 19 7 Q24 0 30 10 Q24 8 21 12 Q18 9 15 14 Q12 9 9 12 Q6 8 0 10Z"/></svg><div class="lbhc__top"><div><h2>Хэллоуин на робототехнике</h2><p>Мастер-класс «Сладость или гадость!» на 45 минут: сборка и программы прямо в слайдах, методика для ведущего. Для EV3 — пугало-страж с ультразвуковым датчиком, программы в Scratch 3. Есть версии для WeDo 2.0 и SPIKE.</p></div>
+<div class="lbhc__timer" aria-label="До Хэллоуина"><div><b data-lbh-d>18</b><span data-lbh-dw>дней</span></div><div><b data-lbh-h>00</b><span>часов</span></div></div></div>
+<div class="lbhc__grid"><a class="lbhc__it is-main" href="https://legobot.ru/tproduct/2345240381-544329549743-master-klass-sladost-ili-gadost-lego-min"><figure><img src="https://cdn.jsdelivr.net/gh/vadimshukin95-sys/legobot-covers@f81ce30/halloween/models/m_ev3.png" alt="Модель «Пугало-страж» для EV3" loading="lazy"></figure><small>EV3</small><b>Пугало-страж</b></a><a class="lbhc__it" href="https://legobot.ru/tproduct/2345240381-995438809593-master-klass-sladost-ili-gadost-lego-wed"><figure><img src="https://cdn.jsdelivr.net/gh/vadimshukin95-sys/legobot-covers@f81ce30/halloween/models/m_wedo.png" alt="Модель «Призрак-ловушка» для WeDo 2.0" loading="lazy"></figure><small>WeDo 2.0</small><b>Призрак-ловушка</b></a><a class="lbhc__it" href="https://legobot.ru/tproduct/2345240381-625271246443-master-klass-sladost-ili-gadost-lego-spi"><figure><img src="https://cdn.jsdelivr.net/gh/vadimshukin95-sys/legobot-covers@f81ce30/halloween/models/m_spike.png" alt="Модель «Летучая мышь-сторож» для SPIKE Prime" loading="lazy"></figure><small>SPIKE Prime</small><b>Летучая мышь-сторож</b></a><a class="lbhc__it" href="https://legobot.ru/tproduct/2345240381-386546524403-master-klass-sladost-ili-gadost-lego-spi"><figure><img src="https://cdn.jsdelivr.net/gh/vadimshukin95-sys/legobot-covers@f81ce30/halloween/models/m_ess.png" alt="Модель «Тыква-угадайка» для SPIKE Essential" loading="lazy"></figure><small>SPIKE Essential</small><b>Тыква-угадайка</b></a></div>
+<a class="lbhc__cta" href="/wedo-2-halloween">Смотреть мастер-классы</a>
+<div class="lbhc__pk"><svg viewBox="0 0 170 130" width="120" aria-hidden="true"><defs><filter id="lbhwg" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><path d="M84 6 q2 -6 9 -5" stroke="#3E8E22" stroke-width="5" fill="none" stroke-linecap="round"/><rect x="22" y="10" width="20" height="14" rx="3" fill="#D96A06"/><rect x="22" y="8" width="20" height="6" rx="3" fill="#FF8A1F"/><rect x="58" y="10" width="20" height="14" rx="3" fill="#D96A06"/><rect x="58" y="8" width="20" height="6" rx="3" fill="#FF8A1F"/><rect x="94" y="10" width="20" height="14" rx="3" fill="#D96A06"/><rect x="94" y="8" width="20" height="6" rx="3" fill="#FF8A1F"/><rect x="130" y="10" width="20" height="14" rx="3" fill="#D96A06"/><rect x="130" y="8" width="20" height="6" rx="3" fill="#FF8A1F"/><rect x="10" y="22" width="152" height="100" rx="8" fill="#D96A06"/><rect x="10" y="22" width="144" height="100" rx="8" fill="#FF8A1F"/><g fill="#FFE066" filter="url(#lbhwg)"><path d="M38 62 L54 40 L70 62Z"/><path d="M96 62 L112 40 L128 62Z"/><path d="M34 80 H134 Q128 108 84 110 Q40 108 34 80Z M50 80 v10 h12 v-10z M74 80 v10 h12 v-10z M98 80 v10 h12 v-10z" fill-rule="evenodd"/></g></svg></div></div></section>
+<script>
+(function(){try{var box=document.getElementById('lbh-halloween');if(!box)return;var e=new Date('2026-10-31T23:59:59+03:00'),n=new Date();if(n>e){box.style.display='none';return;}
+var ms=e-n,d=Math.floor(ms/864e5),h=Math.floor(ms%864e5/36e5);function w(n){var a=n%10,b=n%100;return(a===1&&b!==11)?'день':(a>=2&&a<=4&&(b<12||b>14))?'дня':'дней';}
+box.querySelector('[data-lbh-d]').textContent=d;box.querySelector('[data-lbh-dw]').textContent=w(d);box.querySelector('[data-lbh-h]').textContent=(h<10?'0':'')+h;}catch(err){}})();
+</script>
+<!-- LB HALLOWEEN PROMO END -->
