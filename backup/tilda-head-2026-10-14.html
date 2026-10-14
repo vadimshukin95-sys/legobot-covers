@@ -1,0 +1,534 @@
+<script>/* LB: /wedo -> /prog (копия страницы курсов; товары /wedo/tproduct/... работают как раньше) */(function(p){if(p==='/wedo'||p==='/wedo/')location.replace('/prog'+location.search+location.hash)})(location.pathname)</script> <meta name="google-site-verification" content="u56AFWmCptcQSBSkjDBv8yXrZn6sqE72-rf21QQtRUM" /> <style>
+.lb-foot{box-sizing:border-box;padding-top:40px!important;padding-bottom:10px!important}
+.lb-foot,.lb-foot a,.lb-foot p,.lb-foot span,.lb-foot div{font-family:'Poppins',Arial,sans-serif!important}
+.lb-foot .lb-fw{max-width:1200px;margin:0 auto;padding:60px 40px 30px;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px}
+.lb-foot .lb-logo{color:#f5a623;font-size:22px;font-weight:800;text-decoration:none;display:block;margin-bottom:14px}
+.lb-foot .lb-tagline{color:rgba(255,255,255,.45);font-size:14px;line-height:1.6;margin-bottom:22px}
+.lb-foot .lb-socials{display:flex;gap:10px;align-items:center;flex-wrap:nowrap}
+.lb-foot .lb-socials .lb-soc{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.15);display:flex!important;align-items:center!important;justify-content:center!important;transition:all .25s;text-decoration:none;line-height:0!important;font-size:0!important;flex-shrink:0}
+.lb-foot .lb-socials .lb-soc:hover{background:#f5a623!important;border-color:#f5a623!important}
+.lb-foot .lb-soc svg{fill:rgba(255,255,255,.7);transition:fill .25s;display:block}
+.lb-foot .lb-socials .lb-soc:hover svg{fill:#1C1C28!important}
+.lb-foot .lb-col-h{color:#f5a623;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px}
+.lb-foot .lb-col a:not(.lb-soc):not(.lb-logo){display:block;color:rgba(255,255,255,.6);font-size:15px;line-height:2.1;text-decoration:none;transition:color .2s}
+.lb-foot .lb-col a:hover{color:#f5a623!important}
+.lb-foot .lb-bottom{border-top:1px solid rgba(255,255,255,.1);margin:0 40px;padding:20px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.lb-foot .lb-copy{color:rgba(255,255,255,.35);font-size:13px}
+.lb-foot .lb-legal{display:flex;flex-wrap:wrap;gap:6px 18px}
+.lb-foot .lb-legal a{color:rgba(255,255,255,.45);font-size:13px;text-decoration:none}
+.lb-foot .lb-legal a:hover{color:#f5a623}
+@media(max-width:960px){.lb-foot .lb-fw{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.lb-foot .lb-fw{grid-template-columns:1fr;padding:40px 20px 20px}.lb-foot .lb-bottom{margin:0 20px}}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap');
+#rec2345146581 strong {
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.02em !important;
+}
+
+</style> <script>
+document.addEventListener('DOMContentLoaded',function(){
+  var recs=[].filter.call(document.querySelectorAll('.t-rec'),function(r){return r.getAttribute('data-record-type')==='977';});
+  recs.forEach(function(f){
+  f.classList.add('lb-foot');
+  f.innerHTML='<div class="lb-fw">'
+    +'<div class="lb-col">'
+      +'<a href="/" class="lb-logo">LEGObot.ru</a>'
+      +'<p class="lb-tagline">Готовые инструкции и уроки по LEGO WeDo, SPIKE Prime, EV3 и Scratch</p>'
+      +'<div class="lb-socials">'
+        +'<a href="https://t.me/wwwlegobotru" class="lb-soc" target="_blank" rel="noopener" title="Telegram"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.94 8.19l-2.02 9.52c-.15.67-.54.83-1.08.52l-3-2.21-1.45 1.4c-.16.16-.3.3-.6.3l.21-3.03 5.5-4.97c.24-.21-.05-.33-.37-.12l-6.8 4.28-2.93-.91c-.64-.2-.65-.64.13-.95l11.43-4.41c.53-.19 1 .13.98.58z"/></svg></a>'
+        +'<a href="https://wa.me/79892951900" class="lb-soc" target="_blank" rel="noopener" title="WhatsApp"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 2.11.55 4.09 1.51 5.82L0 24l6.34-1.49C8.03 23.5 9.96 24 12 24c6.63 0 12-5.37 12-12S18.63 0 12 0zm6.3 17.14c-.26.73-1.53 1.4-2.1 1.48-.54.07-1.22.1-1.97-.12-.45-.14-1.03-.33-1.77-.64-3.11-1.34-5.14-4.48-5.3-4.69-.15-.2-1.27-1.69-1.27-3.22s.8-2.28 1.08-2.59c.28-.31.61-.39.81-.39h.59c.19.01.44-.07.69.52.26.61.88 2.12.96 2.27.08.16.13.34.03.55-.1.2-.15.33-.31.51-.16.18-.33.4-.47.54-.16.15-.32.32-.14.63.18.31.81 1.33 1.74 2.16 1.19 1.06 2.19 1.39 2.5 1.54.31.16.49.13.67-.08.18-.21.77-.9.97-1.21.2-.31.41-.26.69-.16.28.1 1.79.84 2.1 1 .31.16.52.24.6.37.07.14.07.79-.2 1.52z"/></svg></a>'
+        +'<a href="https://vk.com/legobotru" class="lb-soc" target="_blank" rel="noopener" title="ВКонтакте"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M13.16 17.57h1.42s.43-.05.65-.28c.2-.22.2-.62.2-.62s-.03-1.9.85-2.18c.87-.27 1.99 1.83 3.18 2.64.89.61 1.58.47 1.58.47l3.16-.04s1.65-.1.87-1.4c-.07-.1-.46-.97-2.37-2.74-1.99-1.84-1.73-1.54.67-4.73 1.46-1.94 2.04-3.13 1.86-3.63-.17-.48-1.24-.35-1.24-.35l-3.56.02s-.26-.04-.46.08c-.19.11-.32.38-.32.38s-.57 1.5-1.32 2.78c-1.59 2.7-2.23 2.84-2.49 2.67-.61-.39-.46-1.57-.46-2.41 0-2.62.4-3.72-.77-3.99-.39-.09-.68-.16-1.67-.17-1.28-.01-2.35.01-2.96.3-.41.2-.72.64-.53.67.23.03.77.14 1.05.53.37.5.36 1.62.36 1.62s.21 3.09-.49 3.47c-.48.26-1.13-.27-2.53-2.7C7.08 7.02 6.53 5.6 6.53 5.6s-.11-.26-.3-.4c-.23-.17-.55-.22-.55-.22L2.18 5s-.49.01-.67.23c-.16.19-.01.59-.01.59S4.35 12 7.12 15.39c2.53 3.1 5.41 2.9 5.41 2.9l1.63-.17z"/></svg></a>'
+      +'</div>'
+    +'</div>'
+    +'<div class="lb-col">'
+      +'<div class="lb-col-h">Каталог</div>'
+      +'<a href="/lego-wedo-2">LEGO WeDo 2.0</a>'
+      +'<a href="/lego-wedo-9580">LEGO WeDo 9580</a>'
+      +'<a href="/wedo-scratch">WeDo 2.0 + Scratch</a>'
+      +'<a href="/lego-spike-prime">SPIKE Prime</a>'
+      +'<a href="/lego-spike-essential">SPIKE Essential</a>'
+      +'<a href="/lego-ev3">Mindstorms EV3</a>'
+      +'<a href="/lego-9686">9686 Физика</a>'
+    +'</div>'
+    +'<div class="lb-col">'
+      +'<div class="lb-col-h">Курсы</div>'
+      +'<a href="/programmy">Учебные программы и модули</a>'
+      +'<a href="/kompl">Комплекты и акции</a>'
+      +'<a href="/lego-ev3/tproduct/4150859001-299557356372-proekt-sorevnovatelnoi-robototehniki-ev3">Соревнования</a>'
+      +'<a href="/prog">Программирование</a>'
+    +'</div>'
+    +'<div class="lb-col">'
+      +'<div class="lb-col-h">Контакты</div>'
+      +'<a href="tel:+79892951900">+7 989 295-19-00</a>'
+      +'<a href="mailto:legobotru@yandex.ru">legobotru@yandex.ru</a>'
+      +'<a href="https://t.me/wwwlegobotru" target="_blank" rel="noopener">Написать в Telegram</a>'
+      +'<a href="/free">Бесплатные уроки</a>'+'<a href="/stati">Статьи для педагогов</a>'
+    +'</div>'
+  +'</div>'
+  +'<div class="lb-bottom">'
+    +'<span class="lb-copy">© '+new Date().getFullYear()+' LEGObot.ru · Щукин Вадим Геннадьевич, ИНН 233411486475</span>'
+    +'<span class="lb-legal"><a href="/offer">Публичная оферта</a><a href="/privacy">Политика конфиденциальности</a><a href="/refund">Возврат и доставка</a></span>'
+  +'</div>';
+  });
+});
+</script> <!-- SEO: Twitter Card. Заголовок/описание/картинку берём из og: — Тильда подставляет их для каждого товара --> <meta name="twitter:card" content="summary_large_image"> <!-- Юридический блок: реквизиты и ссылки на документы --> <style>
+.lb-legal{background:#111111;font-family:'Montserrat',Arial,sans-serif;font-size:13px;line-height:1.7;color:#8a8f96;text-align:center;padding:0 20px 34px}
+.lb-legal__req{margin-bottom:6px}
+.lb-legal__links a{color:#8a8f96;text-decoration:underline;margin:0 9px;white-space:nowrap}
+.lb-legal__links a:hover{color:#4caf2e}
+.lb-legal_standalone{padding-top:34px;margin-top:60px}
+@media screen and (max-width:480px){.lb-legal{font-size:12px;padding-bottom:26px}.lb-legal__links a{display:inline-block;margin:3px 8px}}
+</style> <script>
+(function(){
+  function build(){
+    var x=document.querySelector('.lb-legal');if(x){if(location.pathname.indexOf('/abroad')&&!x.querySelector('a[href="/abroad"]')){var l=document.createElement('a');l.href='/abroad';l.textContent='Оплата из-за рубежа';x.appendChild(l)}return}
+    var d=document.createElement('div');
+    d.className='lb-legal';
+    d.innerHTML='<div class="lb-legal__req">Щукин Вадим Геннадьевич, ИНН 233411486475<br>legobotru@yandex.ru &middot; +7 989 295-19-00</div>'
+      +'<div class="lb-legal__links"><a href="/free" style="color:#4caf2e">Бесплатные уроки</a><a href="/offer">Публичная оферта</a><a href="/privacy">Политика конфиденциальности</a><a href="/refund">Возврат и доставка</a>'+(location.pathname.indexOf('/abroad')?'<a href="/abroad">Оплата из-за рубежа</a>':'')+(location.pathname==='/'?'':'<a href="/">На главную</a>')+'</div>';
+    var recs=document.querySelectorAll('[data-record-type="977"]');
+    if(recs.length){var last=recs[recs.length-1];last.parentNode.insertBefore(d,last.nextSibling);}
+    else{d.className+=' lb-legal_standalone';document.body.appendChild(d);}
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',build);}else{build();}
+})();
+</script> <!-- SEO: JSON-LD --> <script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://legobot.ru/#organization","name":"LEGObot","url":"https://legobot.ru","telephone":"+79892951900","email":"legobotru@yandex.ru","description":"Готовые инструкции и учебные материалы по робототехнике LEGO для детей и школ","sameAs":["https://t.me/wwwlegobotru","https://vk.com/legobotru"]},{"@type":"WebSite","@id":"https://legobot.ru/#website","url":"https://legobot.ru","name":"LEGObot","publisher":{"@id":"https://legobot.ru/#organization"},"inLanguage":"ru-RU"}]}
+</script> <!-- SEO: lang + H1 + alt fixes --> <script>
+document.documentElement.setAttribute("lang","ru");
+document.addEventListener("DOMContentLoaded",function(){
+  if(!document.querySelector("h1")){
+    var hero=document.querySelector("#rec2345164491");
+    if(hero){var h1=document.createElement("h1");h1.style.cssText="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0";h1.textContent="Инструкции по LEGO WeDo, SPIKE Prime и Mindstorms EV3 для детей и школ";hero.insertBefore(h1,hero.firstChild);}}
+  var a={"icon-1-instrukcii":"Готовые инструкции по сборке LEGO-моделей","icon-2-programmy":"Программы для LEGO SPIKE, WeDo и EV3","icon-3-metodichki":"Методические материалы по ФГОС","icon-4-dostup":"Мгновенный доступ после оплаты"};
+  document.querySelectorAll("img[alt=\"\"]").forEach(function(img){for(var k in a){if(img.src.indexOf(k)!==-1){img.alt=a[k];break;}}});
+});
+</script> <!-- Каталог: после переключения раздела не прыгать в начало страницы --> <script>
+(function(){
+  var KEY='lb_catalog_scroll';
+  document.addEventListener('click',function(e){
+    var t=e.target;
+    if(t&&t.closest&&t.closest('.js-catalog-parts-switcher')){
+      try{sessionStorage.setItem(KEY,'1');}catch(err){}
+    }
+  },true);
+  var pending=false,userMoved=false;
+  function markMoved(){userMoved=true;}
+  function place(){
+    if(!pending||userMoved)return;
+    var m=document.querySelector('.js-catalog-has-new-parts-02-26');
+    if(!m)return;
+    var rec=m.closest('[id^="rec"]')||m;
+    var y=rec.getBoundingClientRect().top+window.pageYOffset-90;
+    window.scrollTo(0,y<0?0:y);
+  }
+  document.addEventListener('DOMContentLoaded',function(){
+    try{if(sessionStorage.getItem(KEY)){pending=true;sessionStorage.removeItem(KEY);}}catch(err){}
+    if(!pending)return;
+    ['wheel','touchstart','keydown'].forEach(function(ev){
+      window.addEventListener(ev,markMoved,{passive:true,once:true});
+    });
+    setTimeout(place,350);
+    setTimeout(place,1000);
+    setTimeout(function(){pending=false;},1400);
+  });
+})();
+</script> <!-- Корзина: скругления окна и кнопки --> <style>
+.t706__cartwin-content{border-radius:20px !important}
+.t706__cartwin-content .t-submit{border-radius:30px !important}
+</style> <!-- Переливающаяся кнопка «Среда WeDo» в шапке (главная, /prog) --> <style>
+@keyframes lbWedoFlow{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes lbWedoShine{0%,60%{transform:translateX(-120%) skewX(-20deg)}100%{transform:translateX(260%) skewX(-20deg)}}
+a.lb-wedobtn{position:relative;overflow:hidden;color:#fff!important;border-color:transparent!important;
+  background-image:linear-gradient(110deg,#7b2ff7,#2f80ed,#00c2a8,#f107a3,#7b2ff7)!important;
+  background-size:300% 300%!important;animation:lbWedoFlow 6s ease infinite;
+  box-shadow:0 4px 14px rgba(123,47,247,.35)!important;transition:transform .2s,box-shadow .2s!important}
+a.lb-wedobtn:after{content:"";position:absolute;top:0;left:0;width:40%;height:100%;
+  background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.45),rgba(255,255,255,0));
+  animation:lbWedoShine 3.2s ease-in-out infinite;pointer-events:none}
+a.lb-wedobtn:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(123,47,247,.5)!important}
+@media (prefers-reduced-motion:reduce){a.lb-wedobtn,a.lb-wedobtn:after{animation:none}}
+</style> <script>
+(function(){
+  function add(){
+    var wraps=document.querySelectorAll('.t-menu-base__buttons');
+    if(!wraps.length) return false;
+    var done=false;
+    for(var i=0;i<wraps.length;i++){
+      var w=wraps[i];
+      if(w.querySelector('.lb-wedobtn')){done=true;continue;}
+      var boxes=w.querySelectorAll('.t-menu-base__button:not(.lb-wedo-box)');
+      var box=boxes[boxes.length-1];
+      if(!box) continue;
+      var clone=box.cloneNode(true);
+      clone.className+=' lb-wedo-box';
+      var a=clone.querySelector('a');
+      if(!a) continue;
+      a.className=(a.className||'').replace(/\s*lb-freebtn/g,'')+' lb-wedobtn';
+      a.setAttribute('href','/app');
+      a.removeAttribute('data-tooltip-hook');
+      a.removeAttribute('style');
+      a.textContent='Среда WeDo';
+      w.insertBefore(clone, box);
+      done=true;
+    }
+    /* убрать дублирующий текстовый пункт меню */
+    var links=document.querySelectorAll('.t-menu__link-item[href="/app"]');
+    for(var k=0;k<links.length;k++){var li=links[k].closest('li')||links[k];li.style.display='none';}
+    return done;
+  }
+  var n=0;
+  var t=setInterval(function(){ n++; if((add()&&n>3)||n>40) clearInterval(t); },300);
+  if(document.readyState!=='loading') add(); else document.addEventListener('DOMContentLoaded',add);
+})();
+</script> <!-- Один каталог в шапке: скрываем текстовый пункт «Каталог», если есть кнопка «В каталог» --> <script>
+(function(){
+  function run(){
+    var recs=document.querySelectorAll('.t-menu-base__list');
+    for(var i=0;i<recs.length;i++){
+      var rec=recs[i].closest('[id^="rec"]')||document;
+      var hasBtn=[].some.call(rec.querySelectorAll('.t-menu-base__button a'),function(a){return /каталог/i.test(a.textContent)});
+      if(!hasBtn) continue;
+      [].forEach.call(recs[i].querySelectorAll('.t-menu__link-item'),function(l){
+        if(l.textContent.trim().toLowerCase()==='каталог'){var li=l.closest('li')||l; li.style.display='none';}
+      });
+    }
+  }
+  var n=0; var t=setInterval(function(){n++; run(); if(n>20) clearInterval(t);},300);
+  if(document.readyState!=='loading') run(); else document.addEventListener('DOMContentLoaded',run);
+})();
+</script> <!-- LEGObot: ускорение каталога + возврат к разделам (lb-part-scroll) --> <link rel="preconnect" href="https://store.tildaapi.com" crossorigin> <link rel="dns-prefetch" href="https://store.tildaapi.com"> <script>
+(function(){
+  if(!/^\/\d{6,}-/.test(location.pathname)) return;
+  try{ if("scrollRestoration" in history) history.scrollRestoration="manual"; }catch(e){}
+  var done=false, tries=0;
+  function target(){
+    return document.querySelector(".js-catalog, #rec2345240381, [data-record-type='396']");
+  }
+  function go(){
+    if(done) return;
+    var el=target();
+    if(el && el.offsetHeight>60){
+      var y=el.getBoundingClientRect().top+window.pageYOffset-70;
+      if(y>0){ window.scrollTo(0, y); done=true; return; }
+    }
+    if(++tries<80) setTimeout(go,150);
+  }
+  if(document.readyState==="loading"){
+    document.addEventListener("DOMContentLoaded",function(){setTimeout(go,250)});
+  } else { setTimeout(go,250); }
+})();
+</script> <!-- Главная: каталог открывается на «Спецпредложениях» (раздел «Все» — по ссылке /?all=1) --> <script>
+(function(){
+  if(location.pathname!=='/'||/[?&]all=1/.test(location.search)) return;
+  var ALL='360827146505', SPEC='898389104672';
+  var o=XMLHttpRequest.prototype.open;
+  XMLHttpRequest.prototype.open=function(m,u){
+    if(typeof u==='string'&&/store\.tildaapi\.com\/api\/(getproductslist|getfilters)/.test(u)){
+      var q=/filters(%5B|\[)query(%5D|\])=/.test(u);
+      if(!q&&u.indexOf('storepartuid='+ALL)>-1) arguments[1]=u.replace('storepartuid='+ALL,'storepartuid='+SPEC);
+      else if(q&&u.indexOf('storepartuid='+SPEC)>-1) arguments[1]=u.replace('storepartuid='+SPEC,'storepartuid='+ALL); /* поиск — по всему каталогу */
+    }
+    return o.apply(this,arguments);
+  };
+  var n=0,done=false,t=setInterval(function(){
+    n++;
+    var rec=document.getElementById('rec2345240381');
+    var all=rec&&rec.querySelector('.js-catalog-parts-switcher[data-storepart-uid=""], .t-catalog__parts-button-base-all');
+    var spec=rec&&rec.querySelector('.js-catalog-parts-switcher[data-storepart-uid="'+SPEC+'"]');
+    if(all&&spec&&!done){
+      done=true;
+      all.classList.remove('t-catalog__parts-current','t-catalog__parts-disabled','t-active');
+      all.setAttribute('href','/?all=1');
+      all.addEventListener('click',function(e){e.preventDefault();e.stopImmediatePropagation();location.href='/?all=1';},true);
+      spec.classList.add('t-catalog__parts-current','t-catalog__parts-disabled','t-active');
+    }
+    var si=rec&&rec.querySelector('.js-store-filter-search, .js-catalog-filter-search');
+    if(si) si.setAttribute('placeholder','Поиск по всему каталогу');
+    if((done&&si)||n>80) clearInterval(t);
+  },150);
+})();
+</script> <!-- LB-PROMO START: строка «Новинка: LEGO SPIKE Essential — части 3 и 4» с анимированными моделями, до вт 27.10, 23:59. Чтобы убрать: enabled:false или удалить всё до LB-PROMO END --> <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=Montserrat:wght@800;900&display=swap&subset=cyrillic" rel="stylesheet"> <style>
+.lbs{--spr:url(https://static.tildacdn.com/tild3931-3338-4265-b537-343937623364/lb_spike_models.png);--hot:linear-gradient(100deg,#eb6623,#f5a623,#ffd23a,#4caf2e,#2e9b3d,#eb6623);--g:linear-gradient(110deg,#2e9b3d,#4caf2e,#f5a623,#eb6623,#2e9b3d);position:sticky;top:0;z-index:9999;overflow:hidden;color:#22262b;font-family:'TildaSans','Nunito',Arial,sans-serif;-webkit-font-smoothing:antialiased;background:linear-gradient(100deg,#fff6e8 0%,#fffbea 30%,#f2fbe9 62%,#e7f5fb 100%)}
+.lbs *{box-sizing:border-box}
+.lbs__aur{position:absolute;inset:-50px -60px;pointer-events:none;filter:blur(28px);opacity:.75}
+.lbs__aur i{position:absolute;border-radius:50%}
+.lbs__aur i:nth-child(1){width:340px;height:130px;left:2%;top:24px;background:#ffd6a6;animation:lbA1 12s ease-in-out infinite}
+.lbs__aur i:nth-child(2){width:320px;height:120px;left:42%;top:30px;background:#fff0a8;animation:lbA2 14s ease-in-out infinite}
+.lbs__aur i:nth-child(3){width:300px;height:130px;right:2%;top:28px;background:#c9ecf7;animation:lbA1 16s ease-in-out infinite reverse}
+.lbs__studs{position:absolute;inset:0;pointer-events:none;opacity:.55;background-image:radial-gradient(circle at center,rgba(76,175,46,.16) 0 3px,transparent 3.5px);background-size:18px 18px;-webkit-mask-image:linear-gradient(90deg,#000,transparent 18%,transparent 82%,#000);mask-image:linear-gradient(90deg,#000,transparent 18%,transparent 82%,#000)}
+.lbs:before{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--hot);background-size:300% 100%;animation:lbFlow 5s linear infinite;z-index:3}
+/* летающие кирпичики */
+.lbs__bricks{position:absolute;inset:0;pointer-events:none;z-index:0}
+.lbs__bricks b{position:absolute;bottom:-14px;width:14px;height:9px;border-radius:2px;opacity:0;animation:lbRise 9s linear infinite}
+.lbs__bricks b:before,.lbs__bricks b:after{content:"";position:absolute;top:-3px;width:4px;height:3px;border-radius:1px 1px 0 0;background:inherit}
+.lbs__bricks b:before{left:2px}.lbs__bricks b:after{right:2px}
+.lbs__bricks b:nth-child(1){left:22%;background:#f5a623;animation-delay:0s}
+.lbs__bricks b:nth-child(2){left:37%;background:#4caf2e;animation-delay:2.2s;animation-duration:10s}
+.lbs__bricks b:nth-child(3){left:58%;background:#e8475f;animation-delay:4.1s}
+.lbs__bricks b:nth-child(4){left:74%;background:#2a9fd6;animation-delay:1.3s;animation-duration:11s}
+.lbs__bricks b:nth-child(5){left:88%;background:#ffd23a;animation-delay:5.6s}
+.lbs__bricks b:nth-child(6){left:6%;background:#2a9fd6;animation-delay:6.8s;animation-duration:10s}
+.lbs__in{position:relative;z-index:1;max-width:1200px;margin:0 auto;min-height:78px;padding:0 48px 0 16px;display:flex;align-items:center;justify-content:center;gap:18px}
+/* сцена с моделями */
+.lbs__stage{position:relative;flex:none;width:212px;height:78px}
+.lbs__glow{position:absolute;left:50%;bottom:4px;width:200px;height:20px;margin-left:-100px;border-radius:50%;background:radial-gradient(closest-side,rgba(46,90,40,.22),transparent);animation:lbGlow 2.8s ease-in-out infinite}
+.lbs__m{position:absolute;bottom:6px;background:var(--spr) 0 0/800% 100% no-repeat;filter:drop-shadow(0 4px 4px rgba(30,50,30,.18));transform-origin:50% 100%}
+.lbs__m--l{left:0;width:68px;height:51px;bottom:8px;z-index:1;opacity:.95}
+.lbs__m--c{left:58px;width:96px;height:72px;bottom:3px;z-index:2}
+.lbs__m--r{right:0;width:68px;height:51px;bottom:8px;z-index:1;opacity:.95}
+.lbs__m i{display:block;width:100%;height:100%;background:inherit;animation:lbBob 2.4s ease-in-out infinite}
+.lbs__m--l i{animation-delay:-.8s}.lbs__m--r i{animation-delay:-1.6s}
+.lbs__m{background:none}
+.lbs__m i{background:var(--spr) 0 0/800% 100% no-repeat}
+.lbs__m.is-out{animation:lbOut .32s ease-in forwards}
+.lbs__m.is-in{animation:lbIn .55s cubic-bezier(.34,1.56,.64,1) both}
+.lbs__new{position:absolute;left:44px;top:4px;z-index:4;font-family:'Montserrat','Nunito',Arial,sans-serif;font-weight:900;font-size:11px;letter-spacing:1px;color:#fff;padding:4px 8px 3px;border-radius:8px;background:linear-gradient(110deg,#eb6623,#f5a623);box-shadow:0 3px 8px rgba(235,102,35,.4);transform:rotate(-8deg);animation:lbBadge 2.4s ease-in-out infinite}
+.lbs__spark{position:absolute;z-index:4;font-size:12px;pointer-events:none;animation:lbTw 2.6s ease-in-out infinite;color:#f5a623}
+.lbs__s1{left:30px;bottom:12px}.lbs__s2{right:8px;top:10px;animation-delay:1s;color:#4caf2e}.lbs__s3{left:140px;top:4px;animation-delay:1.7s;color:#2a9fd6}
+/* текст */
+.lbs__head{display:flex;flex-direction:column;line-height:1.15;flex:none}
+.lbs__kick{font-size:11px;font-weight:900;letter-spacing:1.6px;text-transform:uppercase;background:var(--g);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:lbFlow 6s linear infinite}
+.lbs__title{font-size:20px;font-weight:900;white-space:nowrap;color:#22262b}
+.lbs__title em{font-style:normal;background:var(--hot);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:lbFlow 4s linear infinite}
+.lbs__sub{font-size:13px;font-weight:700;color:#5d6268;margin-top:2px;white-space:nowrap}
+.lbs__ts{display:none}
+/* плашки частей */
+.lbs__chips{display:flex;gap:8px;align-items:center}
+.lbs__chip{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:8px;height:50px;padding:0 14px 0 6px;border-radius:16px;font-size:13px;font-weight:700;white-space:nowrap;color:#2f3337!important;text-decoration:none!important;background:rgba(255,255,255,.9);border:1px solid rgba(76,175,46,.25);box-shadow:0 2px 8px rgba(46,155,61,.10);transition:transform .2s,box-shadow .2s}
+.lbs__chip:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(46,155,61,.18)}
+.lbs__chip small{display:block;font-size:11px;font-weight:900;color:#2e9b3d;line-height:1.1;text-transform:uppercase;letter-spacing:.6px}
+.lbs__ico{flex:none;width:52px;height:39px;background:var(--spr) 0 0/800% 100% no-repeat;transition:transform .25s}
+.lbs__chip:hover .lbs__ico{animation:lbWig .6s ease-in-out}
+.lbs__t{line-height:1.2}
+/* кнопка */
+.lbs__cta{position:relative;overflow:hidden;flex:none;display:inline-flex;align-items:center;gap:8px;height:42px;padding:0 22px;border-radius:50px;color:#fff!important;text-decoration:none!important;font-weight:800;font-size:14px;white-space:nowrap;background-image:linear-gradient(110deg,#eb6623,#f5a623,#eb6623,#d9531a,#eb6623);background-size:300% 300%;animation:lbFlow 5s ease infinite;box-shadow:0 4px 14px rgba(235,102,35,.38);transition:transform .2s,box-shadow .2s}
+.lbs__cta:after{content:"";position:absolute;top:0;left:0;width:35%;height:100%;pointer-events:none;background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.55),rgba(255,255,255,0));animation:lbShine 3.2s ease-in-out infinite}
+.lbs__cta:hover{transform:translateY(-1px);box-shadow:0 7px 20px rgba(235,102,35,.5)}
+.lbs__ar{display:inline-block;animation:lbNudge 1.6s ease-in-out infinite}
+.lbs__x{position:absolute;right:12px;top:50%;transform:translateY(-50%);width:28px;height:28px;border:0;border-radius:50%;background:transparent;color:#a3a8ae;font-size:18px;line-height:28px;cursor:pointer;z-index:5;padding:0}
+.lbs__x:hover{background:rgba(255,255,255,.9);color:#2f3337}
+@keyframes lbFlow{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+@keyframes lbShine{0%,55%{transform:translateX(-130%) skewX(-20deg)}100%{transform:translateX(330%) skewX(-20deg)}}
+@keyframes lbTw{0%,100%{opacity:.15;transform:scale(.6) rotate(0)}50%{opacity:1;transform:scale(1.1) rotate(20deg)}}
+@keyframes lbA1{0%,100%{transform:translate(0,0)}50%{transform:translate(120px,6px)}}
+@keyframes lbA2{0%,100%{transform:translate(0,0)}50%{transform:translate(-140px,-4px)}}
+@keyframes lbNudge{0%,100%{transform:translateX(0)}50%{transform:translateX(3px)}}
+@keyframes lbBob{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-4px) rotate(-1.5deg)}}
+@keyframes lbGlow{0%,100%{transform:scaleX(1);opacity:1}50%{transform:scaleX(.9);opacity:.75}}
+@keyframes lbOut{to{opacity:0;transform:translateY(10px) scale(.6)}}
+@keyframes lbIn{from{opacity:0;transform:translateY(14px) scale(.5) rotate(-6deg)}to{opacity:1;transform:none}}
+@keyframes lbBadge{0%,100%{transform:rotate(-8deg) scale(1)}50%{transform:rotate(-4deg) scale(1.08)}}
+@keyframes lbWig{0%,100%{transform:rotate(0)}25%{transform:rotate(-8deg) translateY(-2px)}75%{transform:rotate(6deg)}}
+@keyframes lbRise{0%{opacity:0;transform:translateY(0) rotate(0)}10%{opacity:.55}70%{opacity:.4}100%{opacity:0;transform:translateY(-100px) rotate(160deg)}}
+@media (max-width:1240px){.lbs__sub{display:none}}
+@media (max-width:1160px){.lbs__chips{display:none}}
+@media (max-width:960px){.lbs{position:relative}}
+@media (max-width:860px){
+.lbs__in{min-height:64px;gap:10px;padding:6px 38px 6px 8px;justify-content:flex-start}
+.lbs__stage{order:0;width:74px;height:58px}
+.lbs__m--l,.lbs__m--r,.lbs__s1,.lbs__s3,.lbs__glow{display:none}
+.lbs__m--c{left:0;width:74px;height:55px;bottom:2px}
+.lbs__new{left:-2px;top:0;font-size:9px;padding:3px 6px 2px}
+.lbs__head{order:1;flex:1 1 0;min-width:0}
+.lbs__title{white-space:normal;font-size:15px}
+.lbs__kick{white-space:nowrap;font-size:10px}
+.lbs__tl{display:none}.lbs__ts{display:inline}
+.lbs__bricks b:nth-child(n+4){display:none}}
+@media (max-width:380px){.lbs__kn{display:none}.lbs__stage{width:62px}.lbs__m--c{width:62px;height:47px}}
+@media (prefers-reduced-motion:reduce){.lbs *,.lbs:before{animation:none!important}}
+</style> <style>html.lbp-on .t-menu-base_positionabsolute,html.lbp-on .t-menu-base_positionfixed{top:var(--lbp-h,0px)!important}</style> <script>
+(function(){
+  /* ===== НАСТРОЙКИ ===== */
+  var PROMO = {
+    enabled:  false,                                        // выключено на время Хэллоуина (13.10.2026); true — вернуть
+    deadline: '2026-10-27T23:59:59+03:00',                  // после этой даты строка скрывается сама (вт 27.10, 23:59 МСК)
+    url:      'https://legobot.ru/lego-spike-essential',    // кнопка «Смотреть курсы»
+    p3:       'https://legobot.ru/lego-spike-essential/tproduct/4598306201-871833543493-kurs-lego-spike-essential-chast-3',
+    p4:       'https://legobot.ru/lego-spike-essential/tproduct/4598306201-604503869863-kurs-lego-spike-essential-chast-4',
+    exclude:  ['/app']                                      // страницы без строки
+  };
+  /* модели в спрайте: 0 луноход, 1 паровоз, 2 вертолёт, 3 Формула-1, 4 робот-художник, 5 сумо-бот, 6 спутник, 7 пингвинёнок */
+  var N=8, ORDER=[0,1,2,3,4,5,6,7];
+  /* ===================== */
+  if(!PROMO.enabled) return;
+  var DEADLINE = new Date(PROMO.deadline);
+  if(new Date() >= DEADLINE) return;
+  var path = location.pathname.replace(/\/+$/,'') || '/';
+  if(PROMO.exclude.indexOf(path) > -1) return;
+  document.documentElement.classList.add('lbp-pre');
+  function pos(i){ return (i/(N-1)*100)+'% 0'; }
+  var HTML = '<div class="lbs" id="lbSpike" role="region" aria-label="Новые курсы LEGO SPIKE Essential — части 3 и 4"><div class="lbs__aur"><i></i><i></i><i></i></div><div class="lbs__studs"></div><div class="lbs__bricks"><b></b><b></b><b></b><b></b><b></b><b></b></div>'
+   +'<div class="lbs__in"><div class="lbs__stage" aria-hidden="true"><div class="lbs__glow"></div><div class="lbs__m lbs__m--l"><i></i></div><div class="lbs__m lbs__m--r"><i></i></div><div class="lbs__m lbs__m--c"><i></i></div><span class="lbs__new">NEW</span><span class="lbs__spark lbs__s1">✦</span><span class="lbs__spark lbs__s2">✦</span><span class="lbs__spark lbs__s3">✦</span></div>'
+   +'<div class="lbs__head"><span class="lbs__kick"><span class="lbs__kn">Новинка · </span><span class="lbs__tl">для детей </span>6–9 лет</span><span class="lbs__title"><span class="lbs__tl">LEGO </span>SPIKE Essential<span class="lbs__tl"> —</span><span class="lbs__ts">:</span> <em>части 3 и 4</em></span><span class="lbs__sub lbs__tl">24 новые модели · методички · программы</span></div>'
+   +'<div class="lbs__chips"><a class="lbs__chip" id="lbP3" href="#"><span class="lbs__ico" style="background-position:'+pos(0)+'"></span><span class="lbs__t"><small>Часть 3</small>12 занятий</span></a>'
+   +'<a class="lbs__chip" id="lbP4" href="#"><span class="lbs__ico" style="background-position:'+pos(1)+'"></span><span class="lbs__t"><small>Часть 4</small>12 занятий</span></a></div>'
+   +'<a class="lbs__cta" id="lbSpikeBtn" href="#">Смотреть<span class="lbs__tl"> курсы</span> <span class="lbs__ar">→</span></a></div>'
+   +'<button class="lbs__x" id="lbSpikeX" type="button" aria-label="Закрыть">×</button></div>';
+  function mount(){
+    if(document.getElementById('lbSpike')) return;
+    var box=document.createElement('div'); box.innerHTML=HTML;
+    var el=box.firstElementChild;
+    var root=document.getElementById('allrecords')||document.body;
+    root.insertBefore(el, root.firstChild); document.documentElement.classList.remove('lbp-pre');
+    var R=document.documentElement;
+    function fit(){ R.style.setProperty('--lbp-h', (window.innerWidth>960?el.offsetHeight:0)+'px'); }
+    function off(){ R.classList.remove('lbp-on'); R.style.removeProperty('--lbp-h'); window.removeEventListener('resize',fit); clearInterval(t); clearInterval(rot); }
+    R.classList.add('lbp-on'); fit(); window.addEventListener('resize',fit);
+    document.getElementById('lbSpikeBtn').href=PROMO.url;
+    document.getElementById('lbP3').href=PROMO.p3;
+    document.getElementById('lbP4').href=PROMO.p4;
+    /* карусель моделей */
+    var slots=[el.querySelector('.lbs__m--l'),el.querySelector('.lbs__m--c'),el.querySelector('.lbs__m--r')], k=0;
+    function paint(){ for(var s=0;s<3;s++){ slots[s].firstChild.style.backgroundPosition=pos(ORDER[(k+s)%N]); } }
+    paint();
+    var still=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var rot=still?0:setInterval(function(){
+      if(document.hidden) return;
+      slots.forEach(function(s,i){ setTimeout(function(){ s.classList.remove('is-in'); s.classList.add('is-out'); },i*90); });
+      setTimeout(function(){ k=(k+1)%N; paint(); slots.forEach(function(s,i){ setTimeout(function(){ s.classList.remove('is-out'); s.classList.add('is-in'); },i*110); }); },420);
+    },2800);
+    var t=setInterval(function(){ if(new Date()>=DEADLINE){ el.parentNode&&el.parentNode.removeChild(el); off(); } },60000);
+    document.getElementById('lbSpikeX').onclick=function(){ el.parentNode.removeChild(el); off(); };
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',mount); else mount();
+})();
+</script> <!-- LB-PROMO END --> <!-- LB-HERO: главная — вторая кнопка «Скачать бесплатный урок» и строка доверия; компактная промо-строка на телефоне --> <style>
+.lb-hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px 14px}
+.lb-hero-actions .t941__btn{margin:0!important}
+a.lb-hero2{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 30px;border:2px solid #4CAF2E;border-radius:40px;background:#fff;color:#2C6E18!important;font-weight:700;font-size:16px;text-decoration:none!important;box-sizing:border-box;transition:background .2s}
+a.lb-hero2:hover{background:#f1f9ec}
+.lb-trust{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:22px;max-width:480px;font-size:15px;line-height:1.4;font-weight:600;color:#3C4A33}
+.lb-trust span:before{content:"✓ ";color:#3E9A25;font-weight:800}
+@media (max-width:640px){a.lb-hero2{padding:0 22px;font-size:15px}.lb-trust{font-size:13px;gap:4px 12px;margin-top:16px}}
+@media (max-width:860px){
+ .lbs__models{display:none!important}
+ .lbs__in{flex-wrap:nowrap!important;align-items:center!important;padding:8px 38px 8px 14px!important}
+ .lbs__title{font-size:15px!important}.lbs__title small{display:none!important}
+ .lbs__kick{font-size:10px!important}
+ .lbs__cta{order:2!important;width:auto!important;height:32px!important;padding:0 14px!important;font-size:13px!important}
+ .lbs__x{top:50%!important;transform:translateY(-50%)!important}
+}
+</style> <script>
+(function(){
+  function run(){
+    var rec=document.getElementById('rec2345164491');
+    if(!rec) return true;
+    if(rec.querySelector('.lb-hero2')) return true;
+    var btn=rec.querySelector('.t941__btn');
+    if(!btn) return false;
+    var wrap=document.createElement('div'); wrap.className='lb-hero-actions';
+    btn.parentNode.insertBefore(wrap,btn); wrap.appendChild(btn);
+    var a=document.createElement('a'); a.className='lb-hero2'; a.href='/free'; a.textContent='Скачать бесплатный урок';
+    if(btn.offsetHeight) a.style.height=btn.offsetHeight+'px';
+    var bf=getComputedStyle(btn).fontFamily; if(bf) a.style.fontFamily=bf;
+    wrap.appendChild(a);
+    var t=document.createElement('div'); t.className='lb-trust';
+    t.innerHTML='<span>1000+ школ и педагогов</span><span>8 лет опыта</span><span>программы по ФГОС</span><span>мгновенный доступ</span>';
+    var d=rec.querySelector('.t941__descr'); var df=d?getComputedStyle(d).fontFamily:''; if(df) t.style.fontFamily=df;
+    wrap.parentNode.insertBefore(t, wrap.nextSibling);
+    return true;
+  }
+  var n=0;
+  var t=setInterval(function(){ n++; if(run()||n>40) clearInterval(t); },300);
+  if(document.readyState!=='loading') run(); else document.addEventListener('DOMContentLoaded',run);
+})();
+</script> <!-- LB-MOBBAR: мобильная шапка — логотип в полосе с бургером, полоса не прячется под промо-строкой --> <style>
+/* LB-CLS: заранее резервируем место под промо-строку, мобильную полосу меню и доп. элементы первого экрана */
+html.lbp-pre #allrecords::before{content:"";display:block;height:72px}
+@media (max-width:960px){.t-rec[data-record-type="2083"]{min-height:64px}}
+@media (max-width:640px){#rec2345164491 .t941__content:not(:has(.lb-hero-actions))::after{content:"";display:block;height:128px}}
+@media (min-width:641px) and (max-width:960px){#rec2345164491 .t941__content:not(:has(.lb-hero-actions))::after{content:"";display:block;height:70px}}
+@media (max-width:980px){
+ .lb-moblogo{display:flex;align-items:center;gap:8px;text-decoration:none!important;color:#222!important;font-weight:700;font-size:19px;letter-spacing:-.2px}
+ .lb-moblogo img{height:30px;width:auto;display:block}
+ .tmenu-mobile{box-shadow:0 1px 0 rgba(0,0,0,.06)}
+}
+</style> <script>
+(function(){
+  function bars(){return document.querySelectorAll('.tmenu-mobile');}
+  function sync(){
+    var mob=window.innerWidth<=980, lbs=document.querySelector('.lbs'), off=0;
+    if(lbs){var r=lbs.getBoundingClientRect(); off=Math.max(0,Math.round(r.bottom));}
+    [].forEach.call(bars(),function(bar){
+      if(getComputedStyle(bar).position!=='fixed') return;
+      bar.style.top=mob?off+'px':'';
+      var rec=bar.closest('[id^="rec"]');
+      if(rec) rec.style.minHeight=(mob&&bar.offsetHeight)?bar.offsetHeight+'px':'';
+    });
+  }
+  function logo(){
+    [].forEach.call(bars(),function(bar){
+      var t=bar.querySelector('.tmenu-mobile__text');
+      if(!t||t.querySelector('.lb-moblogo')||t.textContent.trim()) return;
+      var rec=bar.closest('[id^="rec"]')||document;
+      var img=rec.querySelector('.t-menu-base__imglogo');
+      var a=document.createElement('a'); a.className='lb-moblogo'; a.href='/';
+      if(img){var src=img.getAttribute('data-original')||img.getAttribute('src'); if(src){src=src.replace(/^https:\/\/static\.tildacdn\.com\/([^\/]+)\/(.+)$/,'https://thb.tildacdn.com/$1/-/resize/60x/$2'); var i=document.createElement('img'); i.width=30; i.height=30; i.src=src; i.alt='LEGObot.ru'; a.appendChild(i);}}
+      a.appendChild(document.createTextNode('LEGObot.ru'));
+      t.appendChild(a);
+    });
+  }
+  function all(){logo();sync();}
+  window.addEventListener('scroll',sync,{passive:true});
+  window.addEventListener('resize',all);
+  document.addEventListener('click',function(){setTimeout(sync,50);},true);
+  var n=0; var t=setInterval(function(){n++; all(); if(n>30) clearInterval(t);},300);
+  if(document.readyState!=='loading') all(); else document.addEventListener('DOMContentLoaded',all);
+})();
+</script> <!-- LB-NAV: единая шапка — старые самодельные шапки (/free, /app) скрыты; якорные ссылки меню ведут на главную, если на странице нет такого блока --> <style>
+.lb-nav{display:none!important}
+</style> <script>
+(function(){
+  function space(){
+    if(window.innerWidth<=980){[].forEach.call(document.querySelectorAll('.lb-menuspacer'),function(s){s.style.height='0px';}); return;}
+    var m=document.querySelectorAll('.t-menu-base');
+    for(var i=0;i<m.length;i++){
+      var rec=m[i].closest('.t-rec'); if(!rec) continue;
+      var nx=rec.nextElementSibling; while(nx&&!nx.classList.contains('t-rec')) nx=nx.nextElementSibling;
+      if(nx&&nx.getAttribute('data-record-type')==='941') continue;
+      if(getComputedStyle(m[i]).position!=='absolute') continue;
+      var sp=rec.nextElementSibling; if(!sp||!sp.classList.contains('lb-menuspacer')){sp=document.createElement('div'); sp.className='lb-menuspacer'; rec.parentNode.insertBefore(sp,rec.nextSibling);}
+      sp.style.height=m[i].offsetHeight+'px';
+    }
+  }
+  function fix(){
+    var a=document.querySelectorAll('a[href^="#rec"]');
+    for(var i=0;i<a.length;i++){var h=a[i].getAttribute('href'); if(!document.getElementById(h.slice(1))) a[i].setAttribute('href','/'+h);}
+  }
+  var n=0; var t=setInterval(function(){n++; fix(); space(); if(n>20) clearInterval(t);},300);
+  if(document.readyState!=='loading'){fix();space();} else document.addEventListener('DOMContentLoaded',function(){fix();space();});
+  window.addEventListener('resize',space);
+})();
+</script> <!-- LB-LCP: картинка первого экрана — webp + ранняя загрузка (ускоряет LCP) --> <script>
+/* LB-LCP: картинка первого экрана — webp, ранняя загрузка, один и тот же адрес для preload и фона (08.10) */
+(function(){
+  var p=location.pathname.replace(/\/+$/,'')||'/';
+  var M={"/":"tild3835-6130-4166-b331-616634633631/-/format/webp/Gemini_Generated_Ima.png.webp","/prog":"tild6135-6465-4163-b138-396563316235/-/format/webp/ChatGPT_Image_9__202.png.webp","/kompl":"tild3136-3633-4131-a635-663531663738/-/format/webp/kompl_hero.jpg.webp","/lego-9686":"tild3939-6261-4332-b535-323739393065/-/format/webp/nine_hero.jpg.webp","/lego-ev3":"stor3761-6632-4639-a334-636439363165/-/format/webp/64181300e18018cbc113d74496c803e2.jpg.webp","/lego-spike-essential":"tild3962-6434-4465-b065-316637626533/-/format/webp/spike_essential_hero.jpg.webp","/lego-spike-prime":"tild3366-6331-4362-a238-313436653165/-/format/webp/spike_hero.jpg.webp","/lego-wedo-2":"tild3539-6234-4231-a537-353037666534/-/format/webp/wedo_hero.jpg.webp","/lego-wedo-9580":"tild6138-3136-4864-b936-383832356235/-/format/webp/wedo9580_hero.jpg.webp","/programmy":"tild3238-3030-4935-b438-613664346564/-/format/webp/programmy_hero.jpg.webp","/wedo-scratch":"tild6133-6565-4166-b533-396435323563/-/format/webp/scratch_hero.jpg.webp"};
+  var u=M[p]; if(!u) return; u='https://optim.tildacdn.com/'+u;
+  var l=document.createElement('link'); l.rel='preload'; l.as='image'; l.href=u; l.setAttribute('fetchpriority','high'); document.head.appendChild(l);
+  var s=document.createElement('style'); s.textContent='html.lb-v2 body #allrecords .t941__cover.t-bgimg{background-image:url("'+u+'")!important}'; document.head.appendChild(s);
+})();
+</script> <!-- LB-CALM: анимации промо-строки играют первые 10 с после загрузки, затем замирают (экономит процессор и батарею на телефонах); при наведении оживают --> <style>
+.lbs.lbs--calm,.lbs.lbs--calm *,.lbs.lbs--calm:before,.lbs.lbs--calm:after,.lbs.lbs--calm *:before,.lbs.lbs--calm *:after{animation-play-state:paused!important}
+</style> <script>
+(function(){
+  function calm(){ var el=document.getElementById('lbSpike'); if(!el) return; el.classList.add('lbs--calm');
+    el.addEventListener('mouseenter',function(){el.classList.remove('lbs--calm');});
+    el.addEventListener('mouseleave',function(){el.classList.add('lbs--calm');}); }
+  window.addEventListener('load',function(){ setTimeout(calm,10000); });
+})();
+</script> <!-- LB-V2 SITE START · редизайн LEGObot · v2 · 2026-10-07
+     LB_ALL = true — новый дизайн включён для всех. Посмотреть старый вид: ?v2=0, вернуть новый: ?v2=1.
+     Вернуть старый дизайн всем: поменяйте true на false ниже и переопубликуйте страницы.
+     Стили и скрипт — в «Пользовательские CSS-стили» (между LB-V2 CSS START и END). --> <script>
+(function(){var LB_ALL=true,d=document.documentElement;try{var q=location.search;if(/[?&]v2=1/.test(q))localStorage.setItem('lb_v2','1');if(/[?&]v2=0/.test(q))localStorage.setItem('lb_v2','0');var v=localStorage.getItem('lb_v2');if(v==='1'||(LB_ALL&&v!=='0'))d.classList.add('lb-v2');}catch(e){if(LB_ALL)d.classList.add('lb-v2');}
+if(!d.classList.contains('lb-v2'))return;var n=0;function go(){var s=getComputedStyle(d).getPropertyValue('--lbjs').trim().replace(/^["']|["']$/g,'');if(!s){if(++n<50)setTimeout(go,200);return;}try{var b=atob(s),u=new Uint8Array(b.length);for(var i=0;i<b.length;i++)u[i]=b.charCodeAt(i);var el=document.createElement('script');el.text=new TextDecoder().decode(u);document.head.appendChild(el);}catch(e){}}
+if(document.readyState!=='loading')go();else document.addEventListener('DOMContentLoaded',go);})();
+</script> <!-- LB-V2 SITE END --> <!-- LB-V2 XSELL: «Что взять дальше» в карточках товаров --> <script>window.LBXS={"T":{"w461":["322365895312","Коллекция «461 проект WeDo 2.0»","/kompl/tproduct/4598312901-322365895312-instruktsii-461-proekt-wedo-20","Все модели WeDo 2.0 одним комплектом"],"wp1":["774810129082","Учебная программа WeDo 2.0","/programmy/tproduct/4598311301-774810129082-uchebnaya-programma-lego-wedo-20","36 занятий с методичкой"],"wp2":["962792484412","Учебная программа WeDo 2.0, часть 2","/programmy/tproduct/4598311301-962792484412-uchebnaya-programma-wedo-20-chast-2","72 занятия + тетради проектов"],"wp3":["919806588492","Учебная программа WeDo 2.0, часть 3","/kompl/tproduct/4598312901-919806588492-uchebnaya-programma-wedo-20-chast-3","70 занятий на учебный год"],"wmi":["266841183272","Мастерская изобретателя","/kompl/tproduct/4598312901-266841183272-masterskaya-izobretatelya-kurs-wedo-20","13 занятий по 45 минут"],"wreg":["978425645022","Курс «Путешествие по регионам России»","/kompl/tproduct/4598312901-978425645022-kurs-wedo-puteshestvie-po-regionam","Курс WeDo 2.0 по регионам России"],"wmc":["728076658503","Курс «Minecraft» на WeDo 2.0","/kompl/tproduct/4598312901-728076658503-kurs-minecraft-5-urokov-wedo-20","5 уроков с программами WeDo и Scratch"],"w53":["601060446802","53 проекта WeDo 2.0 + Scratch 3.0","/kompl/tproduct/4598312901-601060446802-53-proekta-wedo-20-scratch-30","Все наборы со Scratch одним комплектом"],"s272":["249910245182","Коллекция «272 проекта SPIKE Prime»","/kompl/tproduct/4598312901-249910245182-instruktsii-272-proekta-spike-prime","Все модели SPIKE Prime одним комплектом"],"sc1":["221008788142","Курс SPIKE Prime, часть 1","/programmy/tproduct/4598311301-221008788142-kurs-lego-spike-prime-chast-1","12 занятий с методичками"],"sc2":["362408943602","Курс SPIKE Prime, часть 2","/programmy/tproduct/4598311301-362408943602-kurs-lego-spike-prime-chast-2","Ещё 12 занятий"],"sib":["832734947273","Программа «Инженерное бюро ПРАЙМ»","/kompl/tproduct/4598312901-832734947273-programma-spike-prime-inzhenernoe-byuro","72 часа по ФГОС"],"sws":["641636446923","Рабочие листы «Познаём SPIKE Prime»","/programmy/tproduct/4598311301-641636446923-rabochie-listi-poznayom-spike-prime","4 листа, 25 заданий"],"se1":["918379809843","Курс SPIKE Essential, часть 1","/lego-spike-essential/tproduct/4598306201-918379809843-kurs-lego-spike-essential-chast-1","12 занятий по 45 минут"],"se2":["882828919983","Курс SPIKE Essential, часть 2","/lego-spike-essential/tproduct/4598306201-882828919983-kurs-lego-spike-essential-chast-2","Ещё 12 занятий"],"e163":["876933129942","Коллекция «163 проекта EV3»","/kompl/tproduct/4598312901-876933129942-nabor-instruktsii-163-proekta-lego-ev3","Все модели EV3 одним комплектом"],"eum":["225464781112","Учебно-методический комплект EV3","/kompl/tproduct/4598312901-225464781112-uchebno-metodicheskii-komplekt-ev3","Программа на учебный год"],"etk":["423556643092","Технологические карты EV3","/programmy/tproduct/4598311301-423556643092-tehnologicheskie-karti-ev3","72 урока по этапам"],"ecomp":["299557356372","Проект для соревнований EV3","/lego-ev3/tproduct/4150859001-299557356372-proekt-sorevnovatelnoi-robototehniki-ev3","Модель и программа «РобоСтроитель»"],"n130":["793861959912","Коллекция «130 проектов 9686»","/kompl/tproduct/4598312901-793861959912-instruktsii-130-proektov-9686","Все модели 9686 одним комплектом"],"nkc":["680766098383","Курс «Как это работает» 9686","/kompl/tproduct/4598312901-680766098383-kurs-kak-eto-rabotaet-9686-13-zanyatii","13 занятий по физике"],"m91":["335387917012","Модуль WeDo 9580, 1-й уровень","/programmy/tproduct/4598598301-335387917012-modul-wedo-9580-1-i-uroven","18 занятий по 60–90 минут"],"m92":["990373488562","Модуль WeDo 9580, 2-й уровень","/programmy/tproduct/4598598301-990373488562-modul-wedo-9580-2-i-uroven","18 занятий по 60–90 минут"],"mw2":["995663991372","Модуль WeDo 2.0, 2-й уровень","/programmy/tproduct/4598598301-995663991372-modul-wedo-20-2-i-uroven","13 занятий по 60–90 минут"],"me2":["486455666512","Модуль EV3, 2-й уровень","/programmy/tproduct/4598598301-486455666512-modul-lego-mindstorms-ev3-2-i-uroven","16 занятий по 60–90 минут"],"ms1":["120539163062","Модуль Scratch, 1-й уровень","/programmy/tproduct/4598598301-120539163062-modul-scratch-1-i-uroven","15 занятий по 60–90 минут"],"ms2":["414325103392","Модуль Scratch, 2-й уровень","/programmy/tproduct/4598598301-414325103392-modul-scratch-2-i-uroven","13 занятий по 60–90 минут"],"pal":["512589990682","Курс «Основы алгоритмики в Scratch 3.0»","/prog/tproduct/2366700771-512589990682-kurs-osnovi-algoritmiki-v-scratch-30","12 уроков"],"pps":["728227751032","Курс «Планета Scratch»","/prog/tproduct/2366700771-728227751032-kurs-programmirovaniya-planeta-scratch","7 игр-проектов"],"pps3":["884804429312","Планета Scratch 3 — продвинутый курс","/prog/tproduct/2366700771-884804429312-planeta-scratch-3-prodvinutii-kurs","9 уроков"],"pmc":["551862925672","Курс «Программирование в Minecraft»","/prog/tproduct/2366700771-551862925672-kurs-programmirovanie-v-minecraft","8 уроков"],"prb":["948833215422","Курс «Программирование в Roblox»","/prog/tproduct/2366700771-948833215422-kurs-programmirovanie-v-roblox","11 уроков"],"pc2":["458855565132","Курс «Создание игр в Construct 2»","/prog/tproduct/2366700771-458855565132-kurs-sozdanie-igr-v-construct-2","12 уроков"],"p3d":["627795536152","Курс «3D-моделирование TinkerCAD и 123D»","/prog/tproduct/2366700771-627795536152-kurs-3d-modelirovanie-tinkercad-i-123d","15 занятий"],"pink":["527871527902","Курс «Векторная графика в Inkscape»","/prog/tproduct/2366700771-527871527902-kurs-vektornaya-grafika-v-inkscape","12 уроков"],"free":["","Первый урок — бесплатно","/free","Скачайте и проведите до покупки"]},"P":{"WeDo 2.0":"w461 wp1","SPIKE Prime":"s272 sc1","EV3":"e163 eum","9686":"n130 nkc","WeDo 9580":"m91","WeDo 2.0 + Scratch":"w53 wmc"},"E":{"322365895312":"wp1 wmi","249910245182":"sc1 sib","876933129942":"eum etk","793861959912":"nkc","601060446802":"wmc ms1","774810129082":"free wp2 wmi","962792484412":"free wp3","919806588492":"free wp1","266841183272":"free wreg wp1","978425645022":"free wmi","533722205082":"wp1 w461","366516670482":"wp1 wmi","728076658503":"free w53","221008788142":"free sc2 sws","362408943602":"free sib sws","832734947273":"free sc1","641636446923":"free sc1","365019728732":"free se1","918379809843":"free se2","882828919983":"free se1","225464781112":"etk ecomp","423556643092":"free eum","201647972862":"eum etk","259588091942":"eum etk","299557356372":"e163 eum","680766098383":"free n130","720656549802":"eum wp1","335387917012":"m92","990373488562":"m91","767011387422":"mw2","995663991372":"wp1","591930146992":"me2","486455666512":"ecomp","120539163062":"ms2 pps","414325103392":"pps3","512589990682":"free pps","728227751032":"free pps3","884804429312":"free pmc","222910076462":"free pps","597143089732":"free pal","551862925672":"free prb","948833215422":"free pc2","458855565132":"free prb","527871527902":"free p3d","627795536152":"free pink","320831997612":"free pc2"}};</script> <script>/* LB-BREADCRUMBS: разметка BreadcrumbList для страниц платформ и карточек товаров (08.10) */
+(function(){var M={"lego-wedo-2":"LEGO WeDo 2.0","lego-ev3":"LEGO Mindstorms EV3","lego-9686":"LEGO 9686 «Технология и физика»","lego-spike-prime":"LEGO SPIKE Prime","lego-wedo-9580":"LEGO WeDo 9580","lego-spike-essential":"LEGO SPIKE Essential","wedo-scratch":"WeDo 2.0 + Scratch","programmy":"Учебные программы и модули","kompl":"Комплекты и акции","prog":"Программирование для детей","free":"Бесплатные материалы","app":"Среда программирования WeDo 2.0"};
+function run(){try{var p=location.pathname.split('/').filter(Boolean);if(!p.length||!M[p[0]])return;var B='https://legobot.ru/';var L=[{"@type":"ListItem","position":1,"name":"Главная","item":B},{"@type":"ListItem","position":2,"name":M[p[0]],"item":B+p[0]}];if(p[1]==='tproduct'){var h=document.querySelector('.js-catalog-prod-name,.js-store-prod-name');var n=h?h.textContent.trim():document.title.split('|')[0].trim();if(n)L.push({"@type":"ListItem","position":3,"name":n,"item":B+p.join('/')});}var s=document.createElement('script');s.type='application/ld+json';s.text=JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":L});document.head.appendChild(s);}catch(e){}}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run);else run();})();
+</script> <!-- LB HALLOWEEN STRIP START (до 31.10.2026) --> <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vadimshukin95-sys/legobot-covers@4af976c/halloween/strip.css"><script src="https://cdn.jsdelivr.net/gh/vadimshukin95-sys/legobot-covers@4af976c/halloween/strip.js" defer></script> <!-- LB HALLOWEEN STRIP END --> <!-- LB ABROAD HINT: подсказка «Оплата из-за рубежа» (вне России) --><script src="https://cdn.jsdelivr.net/gh/vadimshukin95-sys/legobot-covers@4be5ce5/abroad/hint.js" defer></script>
