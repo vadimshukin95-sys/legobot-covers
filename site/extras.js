@@ -1,9 +1,10 @@
-/* LEGObot: доп. скрипт сайта (15.10.2026, версия 2.1).
+/* LEGObot: доп. скрипт сайта (15.10.2026, версия 2.2).
    1) Ссылка «Оплата по счёту для школ и организаций» (/dlya-organizatsiy) в карточке товара и в подвале.
    2) Цель VK Рекламы «lb_order» (пиксель 3803867): оформление заказа в корзине Тильды.
    3) Карточка товара: цена за занятие/проект под ценой, точная ссылка на бесплатный образец,
       строка о возврате денег в блоке «Доступ сразу после оплаты».
    4) /free?s=<uid товара>: прокрутка к бесплатному образцу этого товара и подсветка карточки.
+   5) Вкладка каталога «Модули» ведёт сразу к блоку модулей на /programmy.
    Подключается одной строкой в head Тильды. */
 (function () {
   var URL = '/dlya-organizatsiy';
@@ -233,6 +234,78 @@
     setTimeout(function () { hit.forEach(function (c) { c.classList.remove('lb-hit'); }); }, 9000);
   }
 
+  /* Вкладка каталога «Модули» привязана к странице /programmy, где модули — второй каталог ниже
+     «Программ и методик». Ведём сразу к модулям: /programmy#moduli и прокрутка к блоку. */
+  var MOD = { part: '189481412942', url: '/programmy', hash: '#moduli', rec: 'rec4598598301' };
+  function onProgrammy() { return location.pathname.replace(/\/$/, '') === MOD.url; }
+  function modTabs() {
+    var a = document.querySelectorAll('a.t-catalog__parts-button-base[data-storepart-uid="' + MOD.part + '"]');
+    for (var i = 0; i < a.length; i++) {
+      if (a[i].getAttribute('href') !== MOD.url + MOD.hash) a[i].setAttribute('href', MOD.url + MOD.hash);
+    }
+  }
+  /* Высота закреплённых сверху полос (промо-строка, меню), чтобы заголовок не прятался под ними */
+  function topOffset() {
+    var list = [], els = document.querySelectorAll('body *'), w = window.innerWidth, i, cs, r;
+    for (i = 0; i < els.length; i++) {
+      cs = getComputedStyle(els[i]);
+      if (cs.position !== 'fixed' && cs.position !== 'sticky') continue;
+      if (cs.visibility === 'hidden' || cs.display === 'none' || +cs.opacity === 0) continue;
+      r = els[i].getBoundingClientRect();
+      if (r.top < 200 && r.bottom > 0 && r.height > 20 && r.height < 220 && r.width > w / 2) list.push(r);
+    }
+    list.sort(function (a, b) { return a.top - b.top; });
+    var max = 0;
+    for (i = 0; i < list.length; i++) if (list[i].top <= max + 2) max = Math.max(max, list[i].bottom);
+    return max;
+  }
+  function modTarget() {
+    var rec = document.getElementById(MOD.rec);
+    if (!rec) return null;
+    var h = rec.querySelector('h2, .t-catalog__title, .t-section__title, .t-name') || rec;
+    return Math.max(0, Math.round(h.getBoundingClientRect().top + window.pageYOffset - topOffset() - 16));
+  }
+  function scrollToMod(smooth) {
+    var y = modTarget();
+    if (y === null) return false;
+    var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: y, behavior: smooth && !reduce ? 'smooth' : 'auto' });
+    return true;
+  }
+  var modDone = false;
+  function modArrive() {
+    if (modDone || !onProgrammy() || location.hash !== MOD.hash) return;
+    modDone = true;
+    var stop = false, n = 0, stable = 0;
+    function halt() { stop = true; }
+    ['wheel', 'touchstart', 'keydown', 'mousedown'].forEach(function (ev) { window.addEventListener(ev, halt, { once: true, passive: true }); });
+    /* Каталоги на странице дорисовываются после загрузки и сдвигают блок модулей вниз.
+       Поправляем позицию, пока товары не появятся и положение не устоится, или пока человек не начнёт листать сам. */
+    (function again() {
+      if (stop || ++n > 45) return;
+      var y = modTarget();
+      if (y !== null) {
+        if (Math.abs(window.pageYOffset - y) > 4) { window.scrollTo(0, y); stable = 0; } else stable++;
+        var ready = document.querySelector('#' + MOD.rec + ' .js-product') && document.readyState === 'complete';
+        if (ready && stable >= 3) return;
+      }
+      setTimeout(again, 300);
+    })();
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a.t-catalog__parts-button-base[data-storepart-uid="' + MOD.part + '"]');
+    if (!a || e.ctrlKey || e.metaKey || e.shiftKey || e.button > 0) return;
+    e.preventDefault();
+    e.stopPropagation();
+    if (e.stopImmediatePropagation) e.stopImmediatePropagation();
+    if (onProgrammy()) {
+      try { history.replaceState(null, '', MOD.url + MOD.hash); } catch (er) {}
+      scrollToMod(true);
+    } else {
+      location.href = MOD.url + MOD.hash;
+    }
+  }, true);
+
   /* Цель VK «lb_order»: Тильда при успешной отправке заказа из корзины вызывает
      Tilda.sendEventToStatistics(..., "Order <номер>", ..., сумма). Перехватываем этот вызов. */
   function hookOrder() {
@@ -263,6 +336,7 @@
     try { xsFix(); } catch (e) {}
     try { footer(); } catch (e) {}
     try { freeTarget(); } catch (e) {}
+    try { modTabs(); modArrive(); } catch (e) {}
     try { hookOrder(); } catch (e) {}
   }
 
