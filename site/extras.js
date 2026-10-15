@@ -1,4 +1,4 @@
-/* LEGObot: доп. скрипт сайта (15.10.2026, версия 2.2).
+/* LEGObot: доп. скрипт сайта (15.10.2026, версия 2.3).
    1) Ссылка «Оплата по счёту для школ и организаций» (/dlya-organizatsiy) в карточке товара и в подвале.
    2) Цель VK Рекламы «lb_order» (пиксель 3803867): оформление заказа в корзине Тильды.
    3) Карточка товара: цена за занятие/проект под ценой, точная ссылка на бесплатный образец,
@@ -276,19 +276,15 @@
   function modArrive() {
     if (modDone || !onProgrammy() || location.hash !== MOD.hash) return;
     modDone = true;
-    var stop = false, n = 0, stable = 0;
+    var stop = false, n = 0;
     function halt() { stop = true; }
     ['wheel', 'touchstart', 'keydown', 'mousedown'].forEach(function (ev) { window.addEventListener(ev, halt, { once: true, passive: true }); });
     /* Каталоги на странице дорисовываются после загрузки и сдвигают блок модулей вниз.
-       Поправляем позицию, пока товары не появятся и положение не устоится, или пока человек не начнёт листать сам. */
+       Первые 12 секунд возвращаем блок под шапку, если его сдвинуло; как только человек начал листать сам — перестаём. */
     (function again() {
-      if (stop || ++n > 45) return;
+      if (stop || ++n > 40) return;
       var y = modTarget();
-      if (y !== null) {
-        if (Math.abs(window.pageYOffset - y) > 4) { window.scrollTo(0, y); stable = 0; } else stable++;
-        var ready = document.querySelector('#' + MOD.rec + ' .js-product') && document.readyState === 'complete';
-        if (ready && stable >= 3) return;
-      }
+      if (y !== null && Math.abs(window.pageYOffset - y) > 4) window.scrollTo(0, y);
       setTimeout(again, 300);
     })();
   }
