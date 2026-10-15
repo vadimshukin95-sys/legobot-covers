@@ -15,17 +15,17 @@
 @keyframes lbhwBob{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-6px) rotate(-2deg)}}
 @keyframes lbhwFly{0%{transform:translate(0,0)}25%{transform:translate(18px,-5px)}50%{transform:translate(36px,0)}75%{transform:translate(18px,5px)}100%{transform:translate(0,0)}}
 @keyframes lbhwFlap{0%,100%{transform:scaleY(1)}50%{transform:scaleY(.45)}}
-@keyframes lbhwGlow{0%,100%{box-shadow:0 0 22px 6px rgba(255,210,63,.3)}50%{box-shadow:0 0 38px 14px rgba(255,210,63,.55)}}
-@keyframes lbhwShine{0%,70%{left:-60%}100%{left:130%}}
-.lbhw__models img{animation:lbhwBob 2.6s ease-in-out infinite;transform-origin:50% 100%}
+@keyframes lbhwGlow{0%,100%{opacity:.6;transform:scale(.9)}50%{opacity:1;transform:scale(1.12)}}
+@keyframes lbhwShine{0%,70%{transform:translateX(-150%)}100%{transform:translateX(325%)}}
+.lbhw__models img{animation:lbhwBob 2.6s ease-in-out infinite;transform-origin:50% 100%;will-change:transform}
 .lbhw__models img:nth-child(2){animation-delay:.35s}.lbhw__models img:nth-child(3){animation-delay:.7s}.lbhw__models img:nth-child(4){animation-delay:1.05s}
-.lbhw__bat{animation:lbhwFly 6s ease-in-out infinite}.lbhw__bat path{animation:lbhwFlap .35s ease-in-out infinite;transform-origin:50% 50%}
+.lbhw__bat{animation:lbhwFly 6s ease-in-out infinite;will-change:transform}.lbhw__bat path{animation:lbhwFlap .35s ease-in-out infinite;transform-origin:50% 50%}
 .lbhw__bat+.lbhw__bat{animation-duration:7.5s;animation-direction:reverse}
-.lbhw__moon{animation:lbhwGlow 3.2s ease-in-out infinite}
-.lbhw__cta{position:relative;overflow:hidden}.lbhw__cta:after{content:'';position:absolute;top:0;bottom:0;width:40%;left:-60%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);animation:lbhwShine 3.6s ease-in-out infinite}
+.lbhw__moon{position:relative;z-index:0;box-shadow:none}.lbhw__moon:before{content:'';position:absolute;inset:-22px;z-index:-1;border-radius:50%;background:radial-gradient(closest-side,rgba(255,210,63,.6),rgba(255,210,63,0));animation:lbhwGlow 3.2s ease-in-out infinite;will-change:transform,opacity}
+.lbhw__cta{position:relative;overflow:hidden}.lbhw__cta:after{content:'';position:absolute;top:0;bottom:0;width:40%;left:0;transform:translateX(-150%);background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);animation:lbhwShine 3.6s ease-in-out infinite;will-change:transform}
 @media (max-width:960px){.lbhw__models,.lbhw__bat{display:none}}
 @media (max-width:760px){.lbhw{height:64px}.lbhw__in{gap:10px;padding:0 40px 0 12px}.lbhw__d{display:none}.lbhw__moon{width:30px;height:30px}.lbhw__t b{font-size:15px;text-shadow:1px 1px 0 #FF8A1F,2px 2px 0 #B85500,3px 3px 0 #B85500}.lbhw__t span{font-size:12px}.lbhw__cta{font-size:13px;padding:9px 14px}}
-@media (prefers-reduced-motion:reduce){.lbhw *,.lbhw *:after{animation:none!important;transition:none!important}}
+@media (prefers-reduced-motion:reduce){.lbhw *,.lbhw *:before,.lbhw *:after{animation:none!important;transition:none!important}}
 
 /* мобильное меню Tilda (t1272): опустить под полосу */
 @media (max-width:960px){html.lbp-on .tmenu-mobile_positionfixed{top:var(--lbp-hm,0px)!important}html.lbp-on .t-menu-base.tmenu-mobile__menucontent_fixed{margin-top:var(--lbp-hm,0px)!important}}
