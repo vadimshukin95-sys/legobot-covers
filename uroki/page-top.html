@@ -24,7 +24,23 @@
 .t-cms__parts__link[aria-pressed="true"]{background:#4caf2e!important;border-color:#4caf2e!important;color:#fff!important}
 .t-cms__parts__link[aria-pressed="true"] .t-cms__parts__link-text{color:#fff!important}
 .t-cms__parts__link:focus-visible{outline:3px solid #3d9424;outline-offset:2px}
+/* телефон: вкладки одной строкой с горизонтальной прокруткой */
+@media screen and (max-width:680px){
+.t2823__container_parts .t-col{margin-left:0!important;margin-right:0!important;width:100%!important;max-width:100%!important}
+.t2823__parts{flex-wrap:nowrap!important;overflow-x:auto;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:2px 32px 8px 16px;gap:8px!important;-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 32px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 32px),transparent)}
+.t2823__parts::-webkit-scrollbar{display:none}
+.t2823__parts .t-cms__parts__link{flex:0 0 auto;white-space:nowrap}
+}
 </style>
+<script>
+(function(){
+  // активная вкладка всегда в зоне видимости на телефоне
+  function show(a){ var p=a&&a.parentElement; if(!p||p.scrollWidth<=p.clientWidth) return;
+    p.scrollTo({left:Math.max(0,a.offsetLeft-p.offsetLeft-16),behavior:'smooth'}); }
+  document.addEventListener('click',function(e){ var a=e.target.closest&&e.target.closest('.t-cms__parts__link'); if(a) setTimeout(function(){show(a)},50); });
+  var n=0,t=setInterval(function(){ var a=document.querySelector('.t-cms__parts__link[aria-pressed="true"]'); if(a){ show(a); clearInterval(t);} else if(++n>40) clearInterval(t); },250);
+})();
+</script>
 <section class="lbm"><div class="lbm__top"><div class="lbm__in">
 <div class="lbm__crumbs"><a href="/">Главная</a> › Уроки робототехники</div>
 <h1>Уроки робототехники: конспекты занятий</h1>
