@@ -41,17 +41,20 @@ def note(l):
 def facts(l):
     rows = [f"<strong>Курс:</strong> {e(C['course_short'])}, занятие {l['n']} из {total}",
             f"<strong>Возраст:</strong> {e(l['age'])}",
-            f"<strong>Длительность:</strong> {l['minutes']} минут",
+            f"<strong>Длительность:</strong> " + ('два занятия по 45 минут' if l.get('double') else f"{l['minutes']} минут"),
             f"<strong>Набор:</strong> {e(C['kit'])}"]
     if C.get('env'): rows.append(f"<strong>Среда программирования:</strong> {C['env']}")
-    rows.append(f"<strong>Модель:</strong> {e(l['name'])}" + (f", {shagov(l['steps'])} сборки" if l.get('steps') else ''))
+    if l.get('steps') or T != 'D':
+        rows.append(f"<strong>Модель:</strong> {e(l['name'])}" + (f", {shagov(l['steps'])} сборки" if l.get('steps') else ''))
     if l.get('elec'): rows.append(f"<strong>Электроника:</strong> {e(l['elec'])}")
+    if 'motor' in l and l.get('steps'): rows.append("<strong>Мотор:</strong> " + ('нужен, с батарейками' if l['motor'] else 'не нужен'))
     return txt('<br>'.join(rows))
 
 def kit_block(l):
     sw = f"{l['slides']} {pl(l['slides'], ['слайд', 'слайда', 'слайдов'])}" if l.get('slides') else ''
-    items = [x.format(name=e(l['name']), steps=shagov(l['steps']) if l.get('steps') else '', slides=sw)
-             for x in C['kit_list']]
+    items = [x.replace('{model}', '{{model}}').format(name=e(l['name']), steps=shagov(l['steps']) if l.get('steps') else '', slides=sw)
+             for x in C['kit_list'] if not (('{steps}' in x or '{model}' in x) and not l.get('steps'))]
+    items = [x.replace('{model}', '') for x in items]
     items = [re.sub(r',\s*$', '', x) for x in items]
     others = ', '.join(f"<a href=\"{url(o)}\">{e(o['name'])}</a>" for o in L if o['n'] != l['n'])
     return [h2('Что в полном комплекте'), ul(items),
@@ -120,6 +123,61 @@ def body_C(l):
     b += [h2('Что может пойти не так'), ul([f"<strong>{e(r[0])}.</strong> {e(r[1])} — {e(lcfirst(nodot(r[2])))}." for r in tr])]
     return b
 
+
+def clean_equip(x):
+    x = re.sub(r'\s*[«"]?[\w\-]+\.(pdf|pptx|docx)[»"]?', '', x)
+    x = re.sub(r'Презентация «[^»]*»', 'Презентация занятия', x)
+    return nodot(re.sub(r'\s+', ' ', x).replace(' ,', ','))
+
+def body_D(l):
+    b = []
+    if l.get('box'):
+        names = {'Понятие': 'Понятия', 'Правило': 'Правило', 'Навык': 'Навык'}
+        b += [h2('Главное на занятии'), ul([f"<strong>{names[k]}:</strong> {e(nodot(v))}" for k, v in l['box'].items()])]
+    if l.get('goal'):
+        b += [h2('Цель занятия'), txt(e(l['goal'][:1].upper() + l['goal'][1:]))]
+    if l.get('tasks'):
+        b += [h2('Задачи занятия'), ul([e(nodot(x[:1].upper() + x[1:])) for x in l['tasks'][:6]])]
+    if l.get('equip'):
+        b += [h2('Что понадобится'), ul([e(clean_equip(x)) for x in l['equip']])]
+    if l.get('plan'):
+        def stage(x): return re.sub(r'^(Часть \d\. )?\d+\.\s*', lambda m: m.group(1) or '', x)
+        plan = [f"<strong>{e(stage(r[0]))}, {e(r[1])}.</strong> {e(nodot(r[2]))}" for r in l['plan']]
+        b += [h2('План занятия' + (' (два урока по 45 минут)' if l.get('double') else ' на 45 минут')), ol(plan)]
+    if l.get('trials'):
+        b += [h2('Испытания'), ul([f"<strong>{e(t)}.</strong> " + (f"Что проверяем: {e(lcfirst(nodot(w)))}." if w else '') for t, w in l['trials']])]
+    if l.get('stages'):
+        b += [h2('Как проходит финал'), ul([f"<strong>{e(t)}.</strong> {e(nodot(w))}." for t, w in l['stages']])]
+    if l.get('glossary'):
+        b += [h2('Словарь занятия'), ul([f"<strong>{e(r[0])}</strong> — {e(lcfirst(nodot(r[1])))}" for r in l['glossary']])]
+    if l.get('trouble'):
+        b += [h2('Частые трудности'), ul([f"<strong>{e(nodot(r[0]))}.</strong> {e(nodot(r[1]))}." if r[1] else e(nodot(r[0])) for r in l['trouble'][:3]])]
+    return b
+
+def clean_files(x):
+    x = re.sub(r'\s*[«"][^»"]*?(_|\.(pdf|pptx|docx))[^»"]*[»"]', '', x)
+    return nodot(re.sub(r'\s+', ' ', x).replace(' ,', ',').replace(' —', ' —').rstrip(' ;'))
+
+def body_E(l):
+    b = [h2('Тема урока'), txt(f"<strong>{e(l['topic'])}.</strong> {e(dot(l['tagline']))}")]
+    if l.get('goal'): b += [h2('Цель урока'), txt(e(l['goal'][:1].upper() + l['goal'][1:]))]
+    if l.get('tasks'): b += [h2('Задачи урока'), ul([e(nodot(x[:1].upper() + x[1:]).rstrip(';')) for x in l['tasks']])]
+    if l.get('equip'): b += [h2('Что понадобится'), ul([e(clean_files(x)) for x in l['equip']])]
+    if l.get('plan'):
+        def stage(x): return re.sub(r'^\d+\.\s*', '', x)
+        b += [h2('План урока на 45 минут'), ol([f"<strong>{e(stage(r[0]))}, {e(r[1])}.</strong> {e(nodot(first_sent(r[2], 1 if len(first_sent(r[2])) > 40 else 2)))}" for r in l['plan']])]
+    if l.get('talk'):
+        b += [h2('О чём рассказать детям'), ul([f"<strong>{e(nodot(t))}.</strong> {e(first_sent(sv.replace('«', '').replace('»', ''), 2))}" for t, sv in l['talk']])]
+    if l.get('progs'):
+        b += [h2('Программы'), ul([f"<strong>{e(nodot(t))}.</strong> " + (f"Цель: {e(lcfirst(nodot(g)))}." if g else '') for t, g in l['progs']])]
+    if l.get('glossary'): b += [h2('Словарь урока'), ul([f"<strong>{e(r[0])}</strong> — {e(lcfirst(nodot(r[1])))}" for r in l['glossary']])]
+    if l.get('trouble'): b += [h2('Частые трудности'), ul([f"<strong>{e(nodot(r[0]))}.</strong> {e(nodot(r[1]))}." for r in l['trouble'][:3]])]
+    return b
+
+def first_sent(s, n=1):
+    parts = [p.strip() for p in re.findall(r'.+?[.!?…](?:»)?(?=\s|$)', s)]
+    return ' '.join(parts[:n]) if parts else s
+
 def short_desc(l):
     if T == 'A':
         th = nodot(re.sub(r'^\s*(Узнаем|Узнают|Поймут|Поймём)\s*,\s*', '', l['learn'][0]))
@@ -128,6 +186,10 @@ def short_desc(l):
         g = re.split(r',? и (научить|познакомить)', l['goal'])[0]
         g = re.sub(r'^Показать', 'покажем', g); g = re.sub(r'^Рассказать', 'расскажем', g); g = re.sub(r'^Познакомить', 'познакомим', g)
         s = f"Занятие {l['n']} из {total}: {nodot(g)}."
+    elif T == 'E':
+        s = f"Занятие {l['n']} из {total}. {l['topic']}: {dot(lcfirst(l['tagline']))}"
+    elif T == 'D':
+        s = f"Занятие {l['n']} из {total}. {dot(l['subtitle'])}"
     else:
         s = f"Занятие {l['n']} из {total}: {dot(l['tagline'])}"
     if l.get('steps'): s += f" Модель — {shagov(l['steps'])} сборки."
@@ -136,10 +198,10 @@ def short_desc(l):
 rows = []
 for l in L:
     name = l['name']
-    h1 = f"Урок «{name}» по {C['platform']}"
-    seo_title = f"Урок «{name}» {C['platform_short']} — конспект на {l['minutes']} минут | LEGObot"
+    h1 = C.get('h1_tpl', 'Урок «{name}» по {platform}').format(name=name, platform=C['platform'], topic=lcfirst(l.get('topic', '')))
+    seo_title = C.get('seo_title_tpl', 'Урок «{name}» {platform_short} — конспект на {minutes} минут | LEGObot').format(name=name, platform_short=C['platform_short'], minutes=l['minutes'])
     seo_descr = C['seo_descr'].format(name=name, platform=C['platform'], age=l['age'], minutes=l['minutes'])
-    body = [facts(l), txt(note(l))] + {'A': body_A, 'B': body_B, 'C': body_C}[T](l) + kit_block(l)
+    body = [facts(l), txt(note(l))] + {'A': body_A, 'B': body_B, 'C': body_C, 'D': body_D, 'E': body_E}[T](l) + kit_block(l)
     cover = IM.get(f"{l['slug']}.jpg", '')
     rows.append({'Alias': alias(l), 'Title': h1, 'Category': C['category'], 'Media Type': 'image', 'Media': cover,
                  'Description': short_desc(l), 'Text': ''.join(body),
