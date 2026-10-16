@@ -1,0 +1,25 @@
+{
+ "template": "G",
+ "platform": "LEGO WeDo 2.0",
+ "platform_short": "WeDo 2.0",
+ "kit": "LEGO Education WeDo 2.0 (45300)",
+ "env": "WeDo 2.0 и Scratch 3",
+ "alias_suffix": "minecraft-wedo-2",
+ "course_short": "Minecraft на WeDo 2.0",
+ "category": "Minecraft, WeDo 2.0",
+ "date_hour": 0,
+ "h1_tpl": "Урок «{name}» по LEGO WeDo 2.0: {subtitle}",
+ "seo_title_tpl": "Урок «{name}» WeDo 2.0 — курс Minecraft, конспект | LEGObot",
+ "url": "https://legobot.ru/kompl/tproduct/4598312901-728076658503-kurs-minecraft-5-urokov-wedo-20",
+ "free_url": "https://legobot.ru/free?s=728076658503",
+ "free_n": 2,
+ "free_what": "презентация урока целиком, со сборкой и заметками педагога",
+ "full_what": "Полная презентация с заметками педагога к каждому слайду, пошаговой сборкой модели и всеми программами",
+ "kit_list": [
+  "Презентация урока на {slides} (PPTX, 16:9) с заметками педагога к каждому слайду",
+  "Пошаговая сборка модели прямо в презентации: {steps}, с подсказками педагога",
+  "Четыре программы в WeDo 2.0 и одна в Scratch 3",
+  "Викторина с ответами, чек-лист проверки модели и экран достижений"
+ ],
+ "seo_descr": "Конспект урока «{name}» по LEGO WeDo 2.0 для детей {age}: сюжет, план на {minutes} минут, главный механизм, вопросы с ответами и программы."
+}

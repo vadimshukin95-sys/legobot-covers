@@ -30,10 +30,12 @@ zan = f"{total} {pl(total, ['занятие', 'занятия', 'занятий'
 
 def note(l):
     s = (f"Это сокращённый конспект. {C['full_what']} — в курсе «{CL}» ({zan}). ")
-    if C.get('free_url') and l['n'] == 1:
+    fn = C.get('free_n', 1)
+    if C.get('free_url') and l['n'] == fn:
         s += f"А это занятие можно скачать целиком бесплатно: <a href=\"{C['free_url']}\">{C['free_what']}</a>."
     elif C.get('free_url'):
-        s += f"Первое занятие курса можно скачать бесплатно: <a href=\"{C['free_url']}\">{C['free_what']}</a>."
+        who = 'Первое занятие курса' if fn == 1 else f"Занятие «{e(next(o['name'] for o in L if o['n'] == fn))}»"
+        s += f"{who} можно скачать бесплатно: <a href=\"{C['free_url']}\">{C['free_what']}</a>."
     elif C.get('free_other_url'):
         s += f"Попробовать формат бесплатно можно на <a href=\"{C['free_other_url']}\">{C['free_other_text']}</a>."
     return s
@@ -175,6 +177,25 @@ def body_E(l):
     if l.get('trouble'): b += [h2('Частые трудности'), ul([f"<strong>{e(nodot(r[0]))}.</strong> {e(nodot(r[1]))}." for r in l['trouble'][:3]])]
     return b
 
+def body_G(l):
+    b = [h2('Тема урока'), txt(f"<strong>{e(l['name'])} — {e(l['subtitle'])}.</strong> {e(l['tagline'])}")]
+    b += [h2('Сюжет урока'), txt(e(f"{l['story']} {l['story2']}".strip())),
+          ul([f"<strong>Вопрос классу:</strong> {e(l['question'])}", f"<strong>Задача:</strong> {e(l['task'])}"])]
+    if l.get('plan'):
+        b += [h2('План урока на 45 минут'), ol([f"<strong>{e(st)}, {e(tm)}.</strong> {e(nodot(d))}" for st, tm, d in l['plan']])]
+        if l.get('rule'): b += [txt(e(l['rule']))]
+    if l.get('theory'): b += [h2('О чём рассказать детям'), ul([f"<strong>{e(dot(t))}</strong> {e(d)}" for t, d in l['theory']])]
+    if l.get('mech'):
+        b += [h2(f"Главный механизм: {l['mech_title']}"), txt(e(l['mech_intro'])), ul([f"<strong>{e(a)}</strong> — {e(nodot(d))}" for a, d in l['mech']])]
+    if l.get('quiz'): b += [h2('Вопросы на повторение с ответами'), ol([f"<strong>{e(q)}</strong> {e(dot(a))} {e(x)}" for q, a, x in l['quiz']])]
+    if l.get('progs'):
+        items = [f"<strong>{e(dot(t))}</strong> {e(d)}" for t, d in l['progs']]
+        if l.get('scratch'): items.append(f"<strong>Scratch 3.</strong> {e(l['scratch'])}")
+        b += [h2('Программы'), ul(items)]
+    if l.get('ideas'): b += [h2('Задание для изобретателей'), ul([f"<strong>{e(nodot(t))}.</strong> {e(d)}" for t, d in l['ideas']])]
+    if l.get('tips'): b += [h2('Заметки педагогу'), ul([e(x) for x in l['tips'][:2]])]
+    return b
+
 def first_sent(s, n=1):
     parts = [p.strip() for p in re.findall(r'.+?[.!?…](?:»)?(?=\s|$)', s)]
     return ' '.join(parts[:n]) if parts else s
@@ -191,6 +212,8 @@ def short_desc(l):
         s = f"Занятие {l['n']} из {total}. {l['topic']}: {dot(lcfirst(l['tagline']))}"
     elif T == 'D':
         s = f"Занятие {l['n']} из {total}. {dot(l['subtitle'])}"
+    elif T == 'G':
+        s = f"Занятие {l['n']} из {total}. {l['name']} — {l['subtitle']}: {dot(lcfirst(l['task']))}"
     else:
         s = f"Занятие {l['n']} из {total}: {dot(l['tagline'])}"
     if l.get('steps'): s += f" Модель — {shagov(l['steps'])} сборки."
@@ -199,10 +222,10 @@ def short_desc(l):
 rows = []
 for l in L:
     name = l['name']
-    h1 = C.get('h1_tpl', 'Урок «{name}» по {platform}').format(name=name, platform=C['platform'], topic=lcfirst(l.get('topic', '')))
+    h1 = C.get('h1_tpl', 'Урок «{name}» по {platform}').format(name=name, platform=C['platform'], topic=lcfirst(l.get('topic', '')), subtitle=l.get('subtitle', ''))
     seo_title = C.get('seo_title_tpl', 'Урок «{name}» {platform_short} — конспект на {minutes} минут | LEGObot').format(name=name, platform_short=C['platform_short'], minutes=l['minutes'])
     seo_descr = C['seo_descr'].format(name=name, platform=C['platform'], age=l['age'], minutes=l['minutes'])
-    body = [facts(l), txt(note(l))] + {'A': body_A, 'B': body_B, 'C': body_C, 'D': body_D, 'E': body_E}[T](l) + kit_block(l)
+    body = [facts(l), txt(note(l))] + {'A': body_A, 'B': body_B, 'C': body_C, 'D': body_D, 'E': body_E, 'G': body_G}[T](l) + kit_block(l)
     cover = IM.get(f"{l['slug']}.jpg", '')
     rows.append({'Alias': alias(l), 'Title': h1, 'Category': C['category'], 'Media Type': 'image', 'Media': cover,
                  'Description': short_desc(l), 'Text': ''.join(body),
