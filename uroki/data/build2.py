@@ -45,7 +45,7 @@ def facts(l):
             f"<strong>Набор:</strong> {e(C['kit'])}"]
     if C.get('env'): rows.append(f"<strong>Среда программирования:</strong> {C['env']}")
     if l.get('steps') or T != 'D':
-        rows.append(f"<strong>Модель:</strong> {e(l['name'])}" + (f", {shagov(l['steps'])} сборки" if l.get('steps') else ''))
+        rows.append(f"<strong>Модель:</strong> {e(l.get('model', l['name']))}" + (f", {shagov(l['steps'])} сборки" if l.get('steps') else ''))
     if l.get('author'): rows.append(f"<strong>Автор модели:</strong> {e(l['author'])}")
     if l.get('elec'): rows.append(f"<strong>Электроника:</strong> {e(l['elec'])}")
     if 'motor' in l and l.get('steps'): rows.append("<strong>Мотор:</strong> " + ('нужен, с батарейками' if l['motor'] else 'не нужен'))
@@ -168,9 +168,9 @@ def body_E(l):
         def stage(x): return re.sub(r'^\d+\.\s*', '', x)
         b += [h2('План урока на 45 минут'), ol([f"<strong>{e(stage(r[0]))}, {e(r[1])}.</strong> {e(nodot(first_sent(r[2], 1 if len(first_sent(r[2])) > 40 else 2)))}" for r in l['plan']])]
     if l.get('talk'):
-        b += [h2('О чём рассказать детям'), ul([f"<strong>{e(nodot(t))}.</strong> {e(first_sent(sv.replace('«', '').replace('»', ''), 2))}" for t, sv in l['talk']])]
+        b += [h2('О чём рассказать детям'), ul([f"<strong>{e(dot(t))}</strong> {e(first_sent(sv.replace('«', '').replace('»', ''), 2))}" for t, sv in l['talk']])]
     if l.get('progs'):
-        b += [h2('Программы'), ul([f"<strong>{e(nodot(t))}.</strong> " + (f"Цель: {e(lcfirst(nodot(g)))}." if g else '') for t, g in l['progs']])]
+        b += [h2('Программы'), ul([f"<strong>{e(nodot(t))}.</strong> " + ((e(dot(g)) if g.startswith('Идея:') else f"Цель: {e(lcfirst(nodot(g)))}.") if g else '') for t, g in l['progs']])]
     if l.get('glossary'): b += [h2('Словарь урока'), ul([f"<strong>{e(r[0])}</strong> — {e(lcfirst(nodot(r[1])))}" for r in l['glossary']])]
     if l.get('trouble'): b += [h2('Частые трудности'), ul([f"<strong>{e(nodot(r[0]))}.</strong> {e(nodot(r[1]))}." for r in l['trouble'][:3]])]
     return b
