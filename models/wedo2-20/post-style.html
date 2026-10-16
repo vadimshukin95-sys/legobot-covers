@@ -2,7 +2,9 @@
 /* Страницы моделей WeDo 2.0 (Потоки): legobot.ru/wedo-modeli/... */
 .t-cms__page-container .t-cms__page{font-family:'Nunito',Arial,sans-serif;color:#22262b}
 .t-cms__page-container .t-cms__page__cell_media{background:#fff;border:1px solid #e6ebe4;border-radius:20px;overflow:hidden}
-.t-cms__page-container .t-cms__page__image{background-size:contain!important;background-position:center!important;background-color:transparent!important;max-height:440px}
+.t-cms__page-container .t-cms__page__image{background-size:contain!important;background-position:center!important;background-color:transparent!important;height:380px!important}
+.t-cms__page-container .t-cms__page__cell_media{margin-bottom:26px}
+.t-cms__page-container .lbp-title{margin-bottom:6px}
 .t-cms__page-container h1.t-cms__page__atom,.t-cms__page-container .t-cms__page__atom.t-heading{font-family:'Nunito',Arial,sans-serif!important;font-size:40px!important;line-height:1.15!important;font-weight:900!important;color:#1f2421!important;margin:6px 0 22px;display:block}
 .lbp-crumbs{font-family:'Nunito',Arial,sans-serif;font-size:14px;line-height:1.4;color:#5d6a60;margin:0 0 14px}
 .lbp-crumbs a{color:#3d9424;text-decoration:none}
@@ -27,6 +29,7 @@
 .t-cms__page-container .t-redactor__tte-view{font-size:17px}
 .t-cms__page-container .t-redactor__h2{font-size:23px!important;margin-top:34px!important}
 .t-cms__page-container .t-cms__page__cell_media{border-radius:14px}
+.t-cms__page-container .t-cms__page__image{height:240px!important}
 .lbp-cta{padding:0 16px;margin:34px auto 50px}.lbp-cta__box{padding:22px 18px}.lbp-cta__btn{display:block;text-align:center}
 }
 </style>
@@ -39,12 +42,15 @@
     if(!art) return false;
     var title=art.querySelector('.t-heading .t-cms__page__text, h1 .t-cms__page__text, .t-heading, h1');
     var name=title?(title.textContent||'').replace(/\s+из LEGO WeDo 2\.0\s*$/,'').trim():'';
-    var head=art.querySelector('.t-cms__page__cell_txt');
-    if(head && !document.querySelector('.lbp-crumbs')){
+    var media=art.querySelector('.t-cms__page__cell_media');
+    var tmol=title&&title.closest('.t-cms__page__molecule');
+    if(!document.querySelector('.lbp-crumbs')){
       var c=document.createElement('div');
       c.className='lbp-crumbs';
       c.innerHTML='<a href="/">Главная</a> › <a href="/lego-wedo-2">LEGO WeDo 2.0</a> › <a href="/wedo-modeli">Модели</a>'+(name?' › '+name.replace(/[<>&]/g,''):'');
-      head.insertBefore(c,head.firstChild);
+      art.insertBefore(c,art.firstChild);
+      // заголовок над картинкой: сначала понятно, что за модель
+      if(media&&tmol){ tmol.classList.add('lbp-title'); art.insertBefore(tmol,media); }
     }
     if(!document.querySelector('.lbp-cta')){
       var b=document.createElement('section');
