@@ -35,30 +35,44 @@
 </style>
 <script>
 (function(){
-  if(!/^\/wedo-modeli\/./.test(location.pathname)) return;
+  var P=location.pathname, isM=/^\/wedo-modeli\/./.test(P), isU=/^\/uroki\/./.test(P);
+  if(!isM&&!isU) return;
   var SET='/lego-wedo-2/tproduct/4150854401-935571797982-nabor-instruktsii-wedo-20-20-24-proekta';
+  function esc(x){return String(x).replace(/[<>&"]/g,'');}
   function run(){
     var art=document.querySelector('.t-cms__page-container article.t-cms__page');
     if(!art) return false;
     var title=art.querySelector('.t-heading .t-cms__page__text, h1 .t-cms__page__text, .t-heading, h1');
-    var name=title?(title.textContent||'').replace(/\s+из LEGO WeDo 2\.0\s*$/,'').trim():'';
+    var t=title?(title.textContent||'').trim():'';
     var media=art.querySelector('.t-cms__page__cell_media');
     var tmol=title&&title.closest('.t-cms__page__molecule');
     if(!document.querySelector('.lbp-crumbs')){
       var c=document.createElement('div');
       c.className='lbp-crumbs';
-      c.innerHTML='<a href="/">Главная</a> › <a href="/lego-wedo-2">LEGO WeDo 2.0</a> › <a href="/wedo-modeli">Модели</a>'+(name?' › '+name.replace(/[<>&]/g,''):'');
+      c.innerHTML=isM
+        ? '<a href="/">Главная</a> › <a href="/lego-wedo-2">LEGO WeDo 2.0</a> › <a href="/wedo-modeli">Модели</a>'+(t?' › '+esc(t.replace(/\s+из LEGO WeDo 2\.0\s*$/,'')):'')
+        : '<a href="/">Главная</a> › <a href="/uroki">Уроки робототехники</a>'+(t?' › '+esc(t.replace(/\s+по\s+.+$/,'')):'');
       art.insertBefore(c,art.firstChild);
-      // заголовок над картинкой: сначала понятно, что за модель
+      // заголовок над картинкой
       if(media&&tmol){ tmol.classList.add('lbp-title'); art.insertBefore(tmol,media); }
     }
     if(!document.querySelector('.lbp-cta')){
-      var b=document.createElement('section');
-      b.className='lbp-cta';
-      b.innerHTML='<div class="lbp-cta__box"><div class="lbp-cta__title">Пошаговая инструкция к этой модели</div>'+
+      var html;
+      if(isM){
+        html='<div class="lbp-cta__box"><div class="lbp-cta__title">Пошаговая инструкция к этой модели</div>'+
         '<p class="lbp-cta__text">Входит в набор WeDo 2.0 №20: 24 PDF-инструкции для базового набора 45300. Доступ приходит на почту сразу после оплаты.</p>'+
         '<a class="lbp-cta__btn" href="'+SET+'">Смотреть набор №20</a><br>'+
         '<a class="lbp-cta__more" href="/wedo-modeli">← Все модели WeDo 2.0</a></div>';
+      } else {
+        var a=art.querySelector('.t-redactor__tte-view a[href*="/tproduct/"]');
+        if(!a) return false;
+        html='<div class="lbp-cta__box"><div class="lbp-cta__title">Полный урок: методичка, презентация, инструкция</div>'+
+        '<p class="lbp-cta__text">Поминутный ход урока, вопросы к каждому слайду с ответами и разбор программы — в курсе «'+esc(a.textContent)+'». Материалы приходят на почту сразу после оплаты.</p>'+
+        '<a class="lbp-cta__btn" href="'+esc(a.getAttribute('href'))+'">Смотреть курс</a><br>'+
+        '<a class="lbp-cta__more" href="/uroki">← Все уроки</a></div>';
+      }
+      var b=document.createElement('section');
+      b.className='lbp-cta'; b.innerHTML=html;
       var wrap=art.closest('.t-cms__page-wrapper')||art;
       wrap.parentNode.insertBefore(b,wrap.nextSibling);
     }
