@@ -1,0 +1,21 @@
+{
+ "platform": "LEGO SPIKE Essential",
+ "platform_short": "SPIKE Essential",
+ "kit": "LEGO Education SPIKE Essential (45345)",
+ "alias_suffix": "spike-essential",
+ "template": "A",
+ "course_short": "LEGO SPIKE Essential, часть 2",
+ "category": "SPIKE Essential, часть 2",
+ "date_hour": 6,
+ "url": "https://legobot.ru/lego-spike-essential/tproduct/4598306201-882828919983-kurs-lego-spike-essential-chast-2",
+ "free_url": "https://legobot.ru/free?s=882828919983",
+ "free_what": "методичка, презентация и инструкция",
+ "full_what": "Полная методичка с поминутным ходом урока, вопросами к каждому слайду и разбором программы, презентация и инструкция по сборке",
+ "kit_list": [
+  "Методичка для педагога (DOCX): поминутный ход урока, вопросы к слайдам с ответами, разбор блоков программы, частые трудности, словарик",
+  "Презентация занятия (PPTX и PDF)",
+  "Инструкция по сборке модели «{name}» (PDF), {steps}",
+  "Обложка модели (PNG)"
+ ],
+ "seo_descr": "Конспект занятия «{name}» для {platform}, {age}: чему научатся дети, план урока на {minutes} минут, вопросы с ответами и частые трудности."
+}

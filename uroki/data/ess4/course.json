@@ -1,0 +1,22 @@
+{
+ "platform": "LEGO SPIKE Essential",
+ "platform_short": "SPIKE Essential",
+ "kit": "LEGO Education SPIKE Essential (45345)",
+ "alias_suffix": "spike-essential",
+ "template": "B",
+ "course_short": "LEGO SPIKE Essential, часть 4",
+ "category": "SPIKE Essential, часть 4",
+ "date_hour": 4,
+ "url": "https://legobot.ru/lego-spike-essential/tproduct/4598306201-604503869863-kurs-lego-spike-essential-chast-4",
+ "free_other_url": "https://legobot.ru/free?s=918379809843",
+ "free_other_text": "занятии «Кобра» из первой части курса",
+ "full_what": "Полная методичка с теорией, мини-опытом, разбором всех скриптов и ответами, презентация, инструкция по сборке, рабочий лист и готовая программа",
+ "kit_list": [
+  "Методичка для педагога (DOCX): план по минутам, теория, мини-опыт, разбор скриптов с блоками и значениями, ответы, домашнее задание и мини-проект",
+  "Презентация занятия (PPTX и PDF)",
+  "Инструкция по сборке модели «{name}» (PDF), {steps}",
+  "Рабочий лист ученика (PDF и DOCX)",
+  "Готовая программа для приложения LEGO Education SPIKE (.llsp)"
+ ],
+ "seo_descr": "Конспект занятия «{name}» для {platform}, {age}: цель урока, план на {minutes} минут, темы для теории, вопросы с ответами и частые трудности."
+}
