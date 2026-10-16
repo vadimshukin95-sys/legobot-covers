@@ -24,7 +24,7 @@ def dot(s): s = nodot(s); return s if s[-1:] in '!?…' else s + '.'
 def alias(l): return f"urok-{l['slug']}-{C['alias_suffix']}"
 def url(l): return f"/uroki/{alias(l)}"
 
-total = len(L)
+total = C.get('total', len(L))
 CL = f"<a href=\"{C['url']}\">{e(C['course_short'])}</a>"
 zan = f"{total} {pl(total, ['занятие', 'занятия', 'занятий'])}"
 
@@ -43,13 +43,16 @@ def note(l):
 def facts(l):
     rows = [f"<strong>Курс:</strong> {e(C['course_short'])}, занятие {l['n']} из {total}",
             f"<strong>Возраст:</strong> {e(l['age'])}",
-            f"<strong>Длительность:</strong> " + ('два занятия по 45 минут' if l.get('double') else f"{l['minutes']} минут"),
+            f"<strong>Длительность:</strong> " + (C['duration_text'] if C.get('duration_text') else 'два занятия по 45 минут' if l.get('double') else f"{l['minutes']} минут"),
             f"<strong>Набор:</strong> {e(C['kit'])}"]
     if C.get('env'): rows.append(f"<strong>Среда программирования:</strong> {C['env']}")
+    if l.get('section'): rows.append(f"<strong>Раздел программы:</strong> {e(l['section'])}")
     if l.get('steps') or T != 'D':
         rows.append(f"<strong>Модель:</strong> {e(l.get('model', l['name']))}" + (f", {shagov(l['steps'])} сборки" if l.get('steps') else ''))
     if l.get('author'): rows.append(f"<strong>Автор модели:</strong> {e(l['author'])}")
     if l.get('elec'): rows.append(f"<strong>Электроника:</strong> {e(l['elec'])}")
+    if T == 'H' and l.get('mech'): rows.append(f"<strong>Механизм и датчики:</strong> {e(l['mech'])}")
+    if l.get('control'): rows.append(f"<strong>Форма контроля по КТП:</strong> {e(l['control'][:1].lower() + l['control'][1:])}")
     if 'motor' in l and l.get('steps'): rows.append("<strong>Мотор:</strong> " + ('нужен, с батарейками' if l['motor'] else 'не нужен'))
     return txt('<br>'.join(rows))
 
@@ -59,6 +62,10 @@ def kit_block(l):
              for x in C['kit_list'] if not (('{steps}' in x or '{model}' in x) and not l.get('steps'))]
     items = [x.replace('{model}', '') for x in items]
     items = [re.sub(r',\s*$', '', x) for x in items]
+    if C.get('others_by') == 'section':
+        others = ', '.join(f"<a href=\"{url(o)}\">{e(o['name'])}</a>" for o in L if o['n'] != l['n'] and o['section'] == l['section'])
+        tail = f"Другие занятия раздела «{e(l['section'])}»: {others}. " if others else ''
+        return [h2('Что в полном комплекте'), ul(items), txt(f"{tail}Все {zan} — в курсе «{CL}».")]
     others = ', '.join(f"<a href=\"{url(o)}\">{e(o['name'])}</a>" for o in L if o['n'] != l['n'])
     return [h2('Что в полном комплекте'), ul(items),
             txt(f"Другие занятия курса: {others}. Все {zan} — в курсе «{CL}».")]
@@ -196,6 +203,14 @@ def body_G(l):
     if l.get('tips'): b += [h2('Заметки педагогу'), ul([e(x) for x in l['tips'][:2]])]
     return b
 
+def body_H(l):
+    b = []
+    if l.get('plan'): b += [h2('План занятия по КТП'), ol([e(nodot(x)) for x in l['plan']])]
+    if l.get('talk'): b += [h2('О чём рассказать детям'), ul([(f"<strong>{e(dot(t))}</strong> " if t else '') + e(x) for t, x in l['talk']])]
+    if l.get('mech_items'): b += [h2('Механизм занятия' + (f": {l['mech']}" if l.get('mech') and len(l['mech']) < 45 else '')), ul([(f"<strong>{e(dot(t))}</strong> " if t else '') + e(x) for t, x in l['mech_items']])]
+    if l.get('blocks'): b += [h2('Программирование'), ul([(f"<strong>{e(dot(t))}</strong> " if t else '') + e(x) for t, x in l['blocks']])]
+    return b
+
 def first_sent(s, n=1):
     parts = [p.strip() for p in re.findall(r'.+?[.!?…](?:»)?(?=\s|$)', s)]
     return ' '.join(parts[:n]) if parts else s
@@ -212,6 +227,8 @@ def short_desc(l):
         s = f"Занятие {l['n']} из {total}. {l['topic']}: {dot(lcfirst(l['tagline']))}"
     elif T == 'D':
         s = f"Занятие {l['n']} из {total}. {dot(l['subtitle'])}"
+    elif T == 'H':
+        s = f"Занятие {l['n']} из {total}, раздел «{l['section']}»" + (f": {l['mech']}." if l.get('mech') else '.')
     elif T == 'G':
         s = f"Занятие {l['n']} из {total}. {l['name']} — {l['subtitle']}: {dot(lcfirst(l['task']))}"
     else:
@@ -222,14 +239,14 @@ def short_desc(l):
 rows = []
 for l in L:
     name = l['name']
-    h1 = C.get('h1_tpl', 'Урок «{name}» по {platform}').format(name=name, platform=C['platform'], topic=lcfirst(l.get('topic', '')), subtitle=l.get('subtitle', ''))
-    seo_title = C.get('seo_title_tpl', 'Урок «{name}» {platform_short} — конспект на {minutes} минут | LEGObot').format(name=name, platform_short=C['platform_short'], minutes=l['minutes'])
-    seo_descr = C['seo_descr'].format(name=name, platform=C['platform'], age=l['age'], minutes=l['minutes'])
-    body = [facts(l), txt(note(l))] + {'A': body_A, 'B': body_B, 'C': body_C, 'D': body_D, 'E': body_E, 'G': body_G}[T](l) + kit_block(l)
+    h1 = C.get('h1_tpl', 'Урок «{name}» по {platform}').format(name=name, platform=C['platform'], topic=lcfirst(l.get('topic', '')), subtitle=l.get('subtitle', ''), n=l['n'], total=total)
+    seo_title = C.get('seo_title_tpl', 'Урок «{name}» {platform_short} — конспект на {minutes} минут | LEGObot').format(name=name, platform_short=C['platform_short'], minutes=l['minutes'], n=l['n'], total=total)
+    seo_descr = C['seo_descr'].format(name=name, platform=C['platform'], age=l['age'], minutes=l['minutes'], n=l['n'], total=total, mech=l.get('mech', ''))
+    body = [facts(l), txt(note(l))] + {'A': body_A, 'B': body_B, 'C': body_C, 'D': body_D, 'E': body_E, 'G': body_G, 'H': body_H}[T](l) + kit_block(l)
     cover = IM.get(f"{l['slug']}.jpg", '')
     rows.append({'Alias': alias(l), 'Title': h1, 'Category': C['category'], 'Media Type': 'image', 'Media': cover,
                  'Description': short_desc(l), 'Text': ''.join(body),
-                 'Date': C['date_fn'](l) if 'date_fn' in C else f"{C.get('date_day', '2026-10-16')} {C['date_hour']:02d}:{59 - l['n']:02d}:00+03:00", 'Visibility': 'draft', 'Thumb Image': cover,
+                 'Date': (f"{C['date_day']} {C['date_hour'] - l['n'] // 60:02d}:{59 - l['n'] % 60:02d}:00+03:00" if C.get('date_wrap') else None) or f"{C.get('date_day', '2026-10-16')} {C['date_hour']:02d}:{59 - l['n']:02d}:00+03:00", 'Visibility': 'draft', 'Thumb Image': cover,
                  'SEO Title': seo_title, 'SEO Description': seo_descr,
                  'Social Title': seo_title, 'Social Description': seo_descr, 'Social Image': cover})
 buf = io.StringIO()
