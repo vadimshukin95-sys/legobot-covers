@@ -1,0 +1,63 @@
+<style>
+/* Страницы моделей WeDo 2.0 (Потоки): legobot.ru/wedo-modeli/... */
+.t-cms__page-container .t-cms__page{font-family:'Nunito',Arial,sans-serif;color:#22262b}
+.t-cms__page-container .t-cms__page__cell_media{background:#fff;border:1px solid #e6ebe4;border-radius:20px;overflow:hidden}
+.t-cms__page-container .t-cms__page__image{background-size:contain!important;background-position:center!important;background-color:transparent!important;max-height:440px}
+.t-cms__page-container h1.t-cms__page__atom,.t-cms__page-container .t-cms__page__atom.t-heading{font-family:'Nunito',Arial,sans-serif!important;font-size:40px!important;line-height:1.15!important;font-weight:900!important;color:#1f2421!important;margin:6px 0 22px;display:block}
+.lbp-crumbs{font-family:'Nunito',Arial,sans-serif;font-size:14px;line-height:1.4;color:#5d6a60;margin:0 0 14px}
+.lbp-crumbs a{color:#3d9424;text-decoration:none}
+.lbp-crumbs a:hover{text-decoration:underline}
+.t-cms__page-container .t-redactor__tte-view{font-family:'Nunito',Arial,sans-serif;font-size:18px;line-height:1.65;color:#2f3631}
+.t-cms__page-container .t-redactor__tte-view a{color:#3d9424;text-decoration:underline;text-underline-offset:3px}
+.t-cms__page-container .t-redactor__tte-view>.t-redactor__text:first-child{background:#edf9e5;border-radius:16px;padding:20px 24px;line-height:1.9;margin-bottom:18px}
+.t-cms__page-container .t-redactor__tte-view>.t-redactor__text:nth-child(2){border-left:4px solid #f59f00;background:#fff8e6;border-radius:0 12px 12px 0;padding:14px 20px}
+.t-cms__page-container .t-redactor__h2{font-family:'Nunito',Arial,sans-serif!important;font-size:27px!important;line-height:1.25!important;font-weight:800!important;color:#1f2421!important;margin-top:42px!important}
+.t-cms__page-container .t-redactor__tte-view ul,.t-cms__page-container .t-redactor__tte-view ol{padding-left:24px}
+.t-cms__page-container .t-redactor__tte-view li{margin:0 0 8px}
+.t-cms__page-container .t-redactor__tte-view img{border:1px solid #e3e8e1;border-radius:12px}
+.lbp-cta{font-family:'Nunito',Arial,sans-serif;max-width:760px;margin:46px auto 70px;padding:0 20px;box-sizing:content-box}
+.lbp-cta__box{background:#fff8e6;border:2px solid #f59f00;border-radius:18px;padding:28px 30px}
+.lbp-cta__title{font-size:24px;line-height:1.25;font-weight:900;color:#1f2421;margin:0 0 8px}
+.lbp-cta__text{font-size:17px;line-height:1.6;color:#3b443e;margin:0 0 18px}
+.lbp-cta__btn{display:inline-block;background:#f59f00;color:#fff!important;font-weight:800;font-size:17px;text-decoration:none!important;border-radius:50px;padding:14px 30px}
+.lbp-cta__btn:hover{background:#d98c00}
+.lbp-cta__more{display:inline-block;margin:16px 0 0 4px;color:#3d9424;font-weight:700;text-decoration:none}
+@media screen and (max-width:680px){
+.t-cms__page-container h1.t-cms__page__atom,.t-cms__page-container .t-cms__page__atom.t-heading{font-size:29px!important}
+.t-cms__page-container .t-redactor__tte-view{font-size:17px}
+.t-cms__page-container .t-redactor__h2{font-size:23px!important;margin-top:34px!important}
+.t-cms__page-container .t-cms__page__cell_media{border-radius:14px}
+.lbp-cta{padding:0 16px;margin:34px auto 50px}.lbp-cta__box{padding:22px 18px}.lbp-cta__btn{display:block;text-align:center}
+}
+</style>
+<script>
+(function(){
+  if(!/^\/wedo-modeli\/./.test(location.pathname)) return;
+  var SET='/lego-wedo-2/tproduct/4150854401-935571797982-nabor-instruktsii-wedo-20-20-24-proekta';
+  function run(){
+    var art=document.querySelector('.t-cms__page-container article.t-cms__page');
+    if(!art) return false;
+    var title=art.querySelector('.t-heading .t-cms__page__text, h1 .t-cms__page__text, .t-heading, h1');
+    var name=title?(title.textContent||'').replace(/\s+из LEGO WeDo 2\.0\s*$/,'').trim():'';
+    var head=art.querySelector('.t-cms__page__cell_txt');
+    if(head && !document.querySelector('.lbp-crumbs')){
+      var c=document.createElement('div');
+      c.className='lbp-crumbs';
+      c.innerHTML='<a href="/">Главная</a> › <a href="/lego-wedo-2">LEGO WeDo 2.0</a> › <a href="/wedo-modeli">Модели</a>'+(name?' › '+name.replace(/[<>&]/g,''):'');
+      head.insertBefore(c,head.firstChild);
+    }
+    if(!document.querySelector('.lbp-cta')){
+      var b=document.createElement('section');
+      b.className='lbp-cta';
+      b.innerHTML='<div class="lbp-cta__box"><div class="lbp-cta__title">Пошаговая инструкция к этой модели</div>'+
+        '<p class="lbp-cta__text">Входит в набор WeDo 2.0 №20: 24 PDF-инструкции для базового набора 45300. Доступ приходит на почту сразу после оплаты.</p>'+
+        '<a class="lbp-cta__btn" href="'+SET+'">Смотреть набор №20</a><br>'+
+        '<a class="lbp-cta__more" href="/wedo-modeli">← Все модели WeDo 2.0</a></div>';
+      var wrap=art.closest('.t-cms__page-wrapper')||art;
+      wrap.parentNode.insertBefore(b,wrap.nextSibling);
+    }
+    return true;
+  }
+  var n=0,t=setInterval(function(){ if(run()||++n>40) clearInterval(t); },250);
+})();
+</script>
