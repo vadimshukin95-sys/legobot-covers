@@ -229,7 +229,7 @@ for l in L:
     cover = IM.get(f"{l['slug']}.jpg", '')
     rows.append({'Alias': alias(l), 'Title': h1, 'Category': C['category'], 'Media Type': 'image', 'Media': cover,
                  'Description': short_desc(l), 'Text': ''.join(body),
-                 'Date': f"2026-10-16 {C['date_hour']:02d}:{59 - l['n']:02d}:00+03:00", 'Visibility': 'draft', 'Thumb Image': cover,
+                 'Date': C['date_fn'](l) if 'date_fn' in C else f"{C.get('date_day', '2026-10-16')} {C['date_hour']:02d}:{59 - l['n']:02d}:00+03:00", 'Visibility': 'draft', 'Thumb Image': cover,
                  'SEO Title': seo_title, 'SEO Description': seo_descr,
                  'Social Title': seo_title, 'Social Description': seo_descr, 'Social Image': cover})
 buf = io.StringIO()

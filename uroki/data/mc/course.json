@@ -7,7 +7,7 @@
  "alias_suffix": "minecraft-wedo-2",
  "course_short": "Minecraft на WeDo 2.0",
  "category": "Minecraft, WeDo 2.0",
- "date_hour": 0,
+ "date_hour": 23,
  "h1_tpl": "Урок «{name}» по LEGO WeDo 2.0: {subtitle}",
  "seo_title_tpl": "Урок «{name}» WeDo 2.0 — курс Minecraft, конспект | LEGObot",
  "url": "https://legobot.ru/kompl/tproduct/4598312901-728076658503-kurs-minecraft-5-urokov-wedo-20",
@@ -21,5 +21,6 @@
   "Четыре программы в WeDo 2.0 и одна в Scratch 3",
   "Викторина с ответами, чек-лист проверки модели и экран достижений"
  ],
- "seo_descr": "Конспект урока «{name}» по LEGO WeDo 2.0 для детей {age}: сюжет, план на {minutes} минут, главный механизм, вопросы с ответами и программы."
+ "seo_descr": "Конспект урока «{name}» по LEGO WeDo 2.0 для детей {age}: сюжет, план на {minutes} минут, главный механизм, вопросы с ответами и программы.",
+ "date_day": "2026-10-15"
 }
