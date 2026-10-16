@@ -46,6 +46,7 @@ def facts(l):
     if C.get('env'): rows.append(f"<strong>Среда программирования:</strong> {C['env']}")
     if l.get('steps') or T != 'D':
         rows.append(f"<strong>Модель:</strong> {e(l['name'])}" + (f", {shagov(l['steps'])} сборки" if l.get('steps') else ''))
+    if l.get('author'): rows.append(f"<strong>Автор модели:</strong> {e(l['author'])}")
     if l.get('elec'): rows.append(f"<strong>Электроника:</strong> {e(l['elec'])}")
     if 'motor' in l and l.get('steps'): rows.append("<strong>Мотор:</strong> " + ('нужен, с батарейками' if l['motor'] else 'не нужен'))
     return txt('<br>'.join(rows))

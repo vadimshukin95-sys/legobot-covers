@@ -58,6 +58,8 @@ def parse(md):
                 tasks=tasks, equip=equip, plan=plan, talk=slides[:4], progs=progs, glossary=gl, trouble=trouble,
                 warmup=clean(warm.group(1)) if warm else '', elec_list=elec)
 
+AUTHORS = {'biplan': 'Sheepy (MOC-114647)', 'zapusk-rakety': 'Sheepy (MOC-115197)'}
+
 if __name__ == '__main__':
     d = sys.argv[1]
     lst = [l.rstrip('\n').split('\t') for l in open(os.path.join(d, 'list.tsv')) if l.strip()]
@@ -65,6 +67,7 @@ if __name__ == '__main__':
     for n, slug, name, *_ in lst:
         f = glob.glob(os.path.join(d, 'md', f'{n}-*.md'))[0]
         r = parse(open(f).read()); r.update(n=int(n), slug=slug, name=name)
+        if slug in AUTHORS: r['author'] = AUTHORS[slug]
         e = r.pop('elec_list'); r['elec'] = '' if len(e) == 1 else ', '.join(e[:-1]) + ' и ' + e[-1]
         res.append(r)
     json.dump(res, open(os.path.join(d, 'lessons.json'), 'w'), ensure_ascii=False, indent=1)
