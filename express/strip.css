@@ -65,16 +65,16 @@
 @container (max-width:1060px){.lbx__deck{display:none}}
 @container (max-width:900px){.lbx__pill,.lbx .dl{display:none}.lbx .ds{display:inline}}
 @container (max-width:760px){
-  .lbx__in{height:64px;gap:10px;padding:0 40px 3px 10px}
+  .lbx__in{height:64px;gap:9px;padding:0 40px 3px 10px}
   .lbx .d{display:none}.lbx .m{display:inline}
-  .lbx__big{font-size:27px;padding:0 5px 5px 0}
-  .lbx__big:before{text-shadow:1px 1px 0 #C27500,2px 2px 0 #B06A00,3px 3px 0 #8C5200,3px 5px 6px rgba(90,50,0,.3)}
-  .lbx__h b{font-size:15px;text-transform:none;letter-spacing:0;text-shadow:1px 1px 0 #2B2B27,1px 2px 3px rgba(0,0,0,.16)}
+  .lbx__big{font-size:22px;padding:0 4px 4px 0}
+  .lbx__big:before{text-shadow:1px 1px 0 #C27500,2px 2px 0 #9E5E00,3px 3px 0 #7A4700,3px 5px 6px rgba(90,50,0,.3)}
+  .lbx__h b{font-size:14px;text-transform:none;letter-spacing:0;text-shadow:1px 1px 0 #2B2B27,1px 2px 3px rgba(0,0,0,.16)}
   .lbx__t{gap:4px}
   .lbx__s{font-size:12px;gap:4px}
-  .lbx__code{font-size:12px;padding:1px 5px;letter-spacing:.03em}.lbx__code svg{display:none}
+  .lbx__code{font-size:12px;padding:1px 5px;letter-spacing:.02em}.lbx__code svg{display:none}
   .lbx__cd{display:none}
-  .lbx__cta{font-size:13px;padding:9px 12px}
+  .lbx__cta{font-size:13px;padding:9px 11px}
   .lbx__x{right:8px;width:28px;height:28px}
 }
 /* шрифты сайта внутри #allrecords заданы с !important — перебиваем через id плашки */
