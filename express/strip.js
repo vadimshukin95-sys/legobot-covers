@@ -89,7 +89,8 @@
     if(document.getElementById('lbExpress')) return;
     ['lbHw','lbSpike'].forEach(function(id){ var o=document.getElementById(id); if(o) o.parentNode.removeChild(o); });
     var box=document.createElement('div'); box.innerHTML=HTML; var el=box.firstElementChild;
-    var root=document.getElementById('allrecords')||document.body; root.insertBefore(el, root.firstChild);
+    /* вне #allrecords: внутри него шрифты Тильды заданы с !important */
+    var ar=document.getElementById('allrecords'); if(ar&&ar.parentNode) ar.parentNode.insertBefore(el, ar); else document.body.insertBefore(el, document.body.firstChild);
     var R=document.documentElement;
     function fit(){ R.style.setProperty('--lbp-h',(window.innerWidth>960?el.offsetHeight:0)+'px'); R.style.setProperty('--lbp-hm',el.offsetHeight+'px'); var mm=document.querySelector('.tmenu-mobile_positionfixed'); if(mm&&mm.offsetHeight) R.style.setProperty('--lbp-mm',mm.offsetHeight+'px'); }
     function off(){ if(el.parentNode) el.parentNode.removeChild(el); R.classList.remove('lbp-on'); ['--lbp-h','--lbp-hm','--lbp-mm'].forEach(function(v){R.style.removeProperty(v);}); window.removeEventListener('resize',fit); }
