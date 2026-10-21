@@ -77,6 +77,9 @@
   .lbx__cta{font-size:13px;padding:9px 12px}
   .lbx__x{right:8px;width:28px;height:28px}
 }
+/* шрифты сайта внутри #allrecords заданы с !important — перебиваем через id плашки */
+#lbExpress .lbx__big,#lbExpress .lbx__big span,#lbExpress .lbx__big:before{font-family:'Unbounded','Montserrat',Arial,sans-serif!important}
+#lbExpress .lbx__h b,#lbExpress .lbx__cd b{font-family:'Montserrat','Nunito',Arial,sans-serif!important}
 @media (prefers-reduced-motion:reduce){.lbx *{animation:none!important;transition:none!important}}
 
 /* мобильное меню Tilda (t1272) и иконка корзины (t706) — под полосу, как у прежней плашки */
