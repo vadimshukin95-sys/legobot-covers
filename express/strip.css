@@ -1,0 +1,85 @@
+/* LB EXPRESS STRIP — −30% по промокоду ЭКСПРЕСС до 26.10.2026. Стиль обложек LEGObot: белый фон, зелёный круг, объёмный заголовок, жёлтая «таблетка», карточки товаров */
+.lbx{position:sticky;top:0;z-index:9999;container-type:inline-size;overflow:hidden;cursor:pointer;-webkit-tap-highlight-color:transparent;
+  font-family:'Nunito',Arial,sans-serif;color:#2F302C;
+  background:radial-gradient(circle at 70% 150%,#EAF5DC 0 118px,rgba(140,198,63,.28) 118px 120px,transparent 121px),
+             radial-gradient(circle at 70% 150%,#F3F9EB 0 210px,transparent 211px),#fff;
+  box-shadow:inset 0 -3px 0 #8CC63F,0 6px 18px -12px rgba(47,48,44,.35)}
+.lbx *{box-sizing:border-box}
+.lbx__in{max-width:1180px;margin:0 auto;height:84px;display:flex;align-items:center;gap:18px;padding:0 54px 3px 16px;position:relative}
+
+/* «−30%» — объёмные цифры с золотым переливом */
+.lbx__big{flex:none;position:relative;font-family:'Unbounded','Montserrat','Nunito',Arial,sans-serif;font-weight:900;font-size:44px;line-height:1;letter-spacing:-.03em;padding:0 8px 8px 0;white-space:nowrap;
+  animation:lbxPop .9s cubic-bezier(.16,1,.3,1) .1s both}
+.lbx__big:before{content:attr(data-t);position:absolute;left:0;top:0;color:#C97A00;z-index:0;
+  text-shadow:1px 1px 0 #C27500,2px 2px 0 #B06A00,3px 3px 0 #9E5E00,4px 4px 0 #8C5200,5px 5px 0 #7A4700,6px 8px 10px rgba(90,50,0,.35)}
+.lbx__big span{position:relative;z-index:1;color:#FFC400;
+  background:linear-gradient(105deg,#FFB300 0%,#FFD21F 22%,#FFC400 38%,#FFF7C9 47%,#FFE15A 52%,#FFB300 64%,#FFD21F 82%,#FFB300 100%);
+  background-size:300% 100%;background-position:100% 0;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  animation:lbxSheen 4.2s cubic-bezier(.45,0,.25,1) 1s infinite}
+@keyframes lbxSheen{0%{background-position:100% 0}55%,100%{background-position:0 0}}
+@keyframes lbxPop{0%{transform:scale(.55) translateY(6px);opacity:0;filter:blur(6px)}100%{transform:none;opacity:1;filter:blur(0)}}
+
+/* текст */
+.lbx__t{display:flex;flex-direction:column;gap:6px;flex:1;min-width:0}
+.lbx__h{display:flex;align-items:center;gap:10px;white-space:nowrap}
+.lbx__h b{font-family:'Montserrat','Nunito',Arial,sans-serif;font-weight:900;font-size:23px;line-height:1;letter-spacing:-.01em;text-transform:uppercase;color:#46463F;
+  text-shadow:1px 1px 0 #2B2B27,2px 2px 0 #2B2B27,3px 3px 0 #2B2B27,3px 5px 6px rgba(0,0,0,.18)}
+.lbx__pill{background:#FFD200;color:#2F302C;font-weight:800;font-size:13px;line-height:1;padding:6px 11px;border-radius:999px}
+.lbx__s{display:flex;align-items:center;gap:6px;font-size:14px;font-weight:700;color:#5E605A;white-space:nowrap}
+.lbx__code{font:inherit;font-weight:900;font-size:14px;letter-spacing:.06em;color:#2F302C;background:#fff;border:1.5px dashed #8CC63F;border-radius:8px;padding:2px 8px;cursor:copy;display:inline-flex;align-items:center;gap:5px;transition:background-color .15s ease-out,border-color .15s ease-out}
+.lbx__code:hover{background:#F3F9EB}
+.lbx__code svg{width:13px;height:13px;flex:none;color:#6FA92C}
+.lbx__code[data-done]{background:#8CC63F;border-color:#8CC63F;border-style:solid;color:#fff}
+.lbx__code[data-done] svg{color:#fff}
+.lbx__code[data-done] .i-copy,.lbx__code:not([data-done]) .i-ok{display:none}
+
+/* карточки товаров — проезжают по очереди, как вагоны */
+.lbx__deck{flex:none;position:relative;width:176px;height:84px}
+.lbx__card{position:absolute;top:11px;left:57px;width:62px;height:62px;border-radius:10px;overflow:hidden;background:#fff;
+  box-shadow:0 0 0 2px #fff,0 8px 16px -8px rgba(47,48,44,.5);opacity:0;transform:translateX(110px) rotate(12deg);
+  transition:transform .7s cubic-bezier(.16,1,.3,1),opacity .5s cubic-bezier(.16,1,.3,1)}
+.lbx__card img{display:block;width:100%;height:100%;object-fit:cover}
+.lbx__card[data-p="0"]{opacity:1;z-index:1;transform:translateX(-50px) translateY(3px) rotate(-10deg)}
+.lbx__card[data-p="1"]{opacity:1;z-index:3;transform:translateY(-2px) scale(1.06)}
+.lbx__card[data-p="2"]{opacity:1;z-index:2;transform:translateX(50px) translateY(3px) rotate(10deg)}
+.lbx__card[data-p="out"]{opacity:0;z-index:0;transform:translateX(-110px) rotate(-16deg)}
+
+/* таймер */
+.lbx__cd{flex:none;display:flex;gap:5px;font-variant-numeric:tabular-nums}
+.lbx__cd i{font-style:normal;display:flex;flex-direction:column;align-items:center;min-width:42px;background:#fff;border-radius:10px;padding:6px 4px 5px;box-shadow:0 2px 6px -2px rgba(47,48,44,.25),inset 0 0 0 1px #E3EDD8}
+.lbx__cd b{font-family:'Montserrat','Nunito',Arial,sans-serif;font-weight:900;font-size:18px;line-height:1;color:#2F302C}
+.lbx__cd em{font-style:normal;font-size:10px;font-weight:800;color:#6B6E66;margin-top:3px}
+.lbx__cd b.tick{animation:lbxTick .3s cubic-bezier(.16,1,.3,1)}
+@keyframes lbxTick{from{opacity:.25}to{opacity:1}}
+
+/* кнопка и крестик */
+.lbx__cta{flex:none;background:#F59F00;color:#1F2421!important;font-weight:900;font-size:15px;padding:12px 22px;border-radius:999px;text-decoration:none!important;white-space:nowrap;box-shadow:0 8px 16px -8px rgba(199,127,0,.8);transition:background-color .15s ease-out,transform .15s ease-out}
+.lbx:hover .lbx__cta{background:#FFAE1A}
+.lbx__cta:active{transform:scale(.97)}
+.lbx__x{position:absolute;right:14px;top:calc(50% - 2px);transform:translateY(-50%);width:30px;height:30px;border:0;border-radius:50%;padding:0;cursor:pointer;display:grid;place-items:center;background:#F0F4EC;color:#5E605A;transition:background-color .15s ease-out}
+.lbx__x:hover{background:#E2EAD9}
+.lbx__x svg{width:12px;height:12px}
+.lbx__code:focus-visible,.lbx__cta:focus-visible,.lbx__x:focus-visible{outline:3px solid #8CC63F;outline-offset:2px}
+.lbx .m,.lbx .ds{display:none}
+
+@container (max-width:1060px){.lbx__deck{display:none}}
+@container (max-width:900px){.lbx__pill,.lbx .dl{display:none}.lbx .ds{display:inline}}
+@container (max-width:760px){
+  .lbx__in{height:64px;gap:10px;padding:0 40px 3px 10px}
+  .lbx .d{display:none}.lbx .m{display:inline}
+  .lbx__big{font-size:27px;padding:0 5px 5px 0}
+  .lbx__big:before{text-shadow:1px 1px 0 #C27500,2px 2px 0 #B06A00,3px 3px 0 #8C5200,3px 5px 6px rgba(90,50,0,.3)}
+  .lbx__h b{font-size:15px;text-shadow:1px 1px 0 #2B2B27,1px 2px 3px rgba(0,0,0,.16)}
+  .lbx__t{gap:4px}
+  .lbx__s{font-size:12px;gap:4px}
+  .lbx__code{font-size:12px;padding:1px 5px;letter-spacing:.03em}.lbx__code svg{display:none}
+  .lbx__cd{display:none}
+  .lbx__cta{font-size:13px;padding:9px 12px}
+  .lbx__x{right:8px;width:28px;height:28px}
+}
+@media (prefers-reduced-motion:reduce){.lbx *{animation:none!important;transition:none!important}}
+
+/* мобильное меню Tilda (t1272) и иконка корзины (t706) — под полосу, как у прежней плашки */
+@media (max-width:960px){html.lbp-on .tmenu-mobile_positionfixed{top:var(--lbp-hm,0px)!important}html.lbp-on .t-menu-base.tmenu-mobile__menucontent_fixed{margin-top:var(--lbp-hm,0px)!important}}
+html.lbp-on .t706__carticon{top:calc(50px + var(--lbp-h,0px))!important}
+@media (max-width:960px){html.lbp-on .t706__carticon{top:calc(var(--lbp-hm,0px) + var(--lbp-mm,64px) + 12px)!important}}
