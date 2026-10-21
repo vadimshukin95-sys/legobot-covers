@@ -80,6 +80,7 @@
 /* шрифты сайта внутри #allrecords заданы с !important — перебиваем через id плашки */
 #lbExpress .lbx__big,#lbExpress .lbx__big span,#lbExpress .lbx__big:before{font-family:'Unbounded','Montserrat',Arial,sans-serif!important}
 #lbExpress .lbx__h b,#lbExpress .lbx__cd b{font-family:'Montserrat','Nunito',Arial,sans-serif!important}
+@container (max-width:380px){.lbx__in{gap:6px;padding:0 36px 3px 8px}.lbx__big{font-size:19px;padding:0 3px 3px 0}.lbx__h b{font-size:13px}.lbx__s{font-size:11.5px}.lbx__code{font-size:11.5px;padding:1px 4px}.lbx__cta{font-size:12.5px;padding:8px 10px}.lbx__x{right:6px;width:26px;height:26px}}
 @media (prefers-reduced-motion:reduce){.lbx *{animation:none!important;transition:none!important}}
 
 /* мобильное меню Tilda (t1272) и иконка корзины (t706) — под полосу, как у прежней плашки */
