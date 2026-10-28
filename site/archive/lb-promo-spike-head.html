@@ -1,0 +1,93 @@
+<!-- АРХИВ. Стили строки-акции «Новинка: LEGO SPIKE Essential — части 3 и 4» (акция до 27.10.2026).
+     Были в HEAD-коде Tilda, убраны оттуда 28.10.2026, чтобы освободить место. Сам скрипт строки — в site/head-scripts.js (PROMO, deadline).
+     Чтобы снова включить акцию: вернуть этот блок в HEAD (или подключить отдельным файлом) и поменять PROMO.deadline. -->
+<!-- LB-PROMO START: строка «Новинка: LEGO SPIKE Essential — части 3 и 4» с анимированными моделями, до вт 27.10, 23:59. Чтобы убрать: enabled:false или удалить всё до LB-PROMO END --> <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&display=swap&subset=cyrillic" rel="stylesheet" media="print" onload="this.media='all'"> <style>
+.lbs{--spr:url(https://static.tildacdn.com/tild3931-3338-4265-b537-343937623364/lb_spike_models.png);--hot:linear-gradient(100deg,#eb6623,#f5a623,#ffd23a,#4caf2e,#2e9b3d,#eb6623);--g:linear-gradient(110deg,#2e9b3d,#4caf2e,#f5a623,#eb6623,#2e9b3d);position:sticky;top:0;z-index:9999;overflow:hidden;color:#22262b;font-family:'TildaSans','Nunito',Arial,sans-serif;-webkit-font-smoothing:antialiased;background:linear-gradient(100deg,#fff6e8 0%,#fffbea 30%,#f2fbe9 62%,#e7f5fb 100%)}
+.lbs *{box-sizing:border-box}
+.lbs__aur{position:absolute;inset:-50px -60px;pointer-events:none;opacity:.75}
+.lbs__aur i{position:absolute;border-radius:50%}
+.lbs__aur i:nth-child(1){width:340px;height:130px;left:2%;top:24px;background:radial-gradient(closest-side,#ffd6a6,rgba(255,214,166,0));animation:lbA1 12s ease-in-out infinite}
+.lbs__aur i:nth-child(2){width:320px;height:120px;left:42%;top:30px;background:radial-gradient(closest-side,#fff0a8,rgba(255,240,168,0));animation:lbA2 14s ease-in-out infinite}
+.lbs__aur i:nth-child(3){width:300px;height:130px;right:2%;top:28px;background:radial-gradient(closest-side,#c9ecf7,rgba(201,236,247,0));animation:lbA1 16s ease-in-out infinite reverse}
+.lbs__studs{position:absolute;inset:0;pointer-events:none;opacity:.55;background-image:radial-gradient(circle at center,rgba(76,175,46,.16) 0 3px,transparent 3.5px);background-size:18px 18px;-webkit-mask-image:linear-gradient(90deg,#000,transparent 18%,transparent 82%,#000);mask-image:linear-gradient(90deg,#000,transparent 18%,transparent 82%,#000)}
+.lbs:before{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--hot);background-size:300% 100%;animation:lbFlow 5s linear infinite;z-index:3}
+/* летающие кирпичики */
+.lbs__bricks{position:absolute;inset:0;pointer-events:none;z-index:0}
+.lbs__bricks b{position:absolute;bottom:-14px;width:14px;height:9px;border-radius:2px;opacity:0;animation:lbRise 9s linear infinite}
+.lbs__bricks b:before,.lbs__bricks b:after{content:"";position:absolute;top:-3px;width:4px;height:3px;border-radius:1px 1px 0 0;background:inherit}
+.lbs__bricks b:before{left:2px}.lbs__bricks b:after{right:2px}
+.lbs__bricks b:nth-child(1){left:22%;background:#f5a623;animation-delay:0s}
+.lbs__bricks b:nth-child(2){left:37%;background:#4caf2e;animation-delay:2.2s;animation-duration:10s}
+.lbs__bricks b:nth-child(3){left:58%;background:#e8475f;animation-delay:4.1s}
+.lbs__bricks b:nth-child(4){left:74%;background:#2a9fd6;animation-delay:1.3s;animation-duration:11s}
+.lbs__bricks b:nth-child(5){left:88%;background:#ffd23a;animation-delay:5.6s}
+.lbs__bricks b:nth-child(6){left:6%;background:#2a9fd6;animation-delay:6.8s;animation-duration:10s}
+.lbs__in{position:relative;z-index:1;max-width:1200px;margin:0 auto;min-height:78px;padding:0 48px 0 16px;display:flex;align-items:center;justify-content:center;gap:18px}
+/* сцена с моделями */
+.lbs__stage{position:relative;flex:none;width:212px;height:78px}
+.lbs__glow{position:absolute;left:50%;bottom:4px;width:200px;height:20px;margin-left:-100px;border-radius:50%;background:radial-gradient(closest-side,rgba(46,90,40,.22),transparent);animation:lbGlow 2.8s ease-in-out infinite}
+.lbs__m{position:absolute;bottom:6px;background:var(--spr) 0 0/800% 100% no-repeat;filter:drop-shadow(0 4px 4px rgba(30,50,30,.18));transform-origin:50% 100%}
+.lbs__m--l{left:0;width:68px;height:51px;bottom:8px;z-index:1;opacity:.95}
+.lbs__m--c{left:58px;width:96px;height:72px;bottom:3px;z-index:2}
+.lbs__m--r{right:0;width:68px;height:51px;bottom:8px;z-index:1;opacity:.95}
+.lbs__m i{display:block;width:100%;height:100%;background:inherit;animation:lbBob 2.4s ease-in-out infinite}
+.lbs__m--l i{animation-delay:-.8s}.lbs__m--r i{animation-delay:-1.6s}
+.lbs__m{background:none}
+.lbs__m i{background:var(--spr) 0 0/800% 100% no-repeat}
+.lbs__m.is-out{animation:lbOut .32s ease-in forwards}
+.lbs__m.is-in{animation:lbIn .55s cubic-bezier(.34,1.56,.64,1) both}
+.lbs__new{position:absolute;left:44px;top:4px;z-index:4;font-family:'Montserrat','Nunito',Arial,sans-serif;font-weight:900;font-size:11px;letter-spacing:1px;color:#fff;padding:4px 8px 3px;border-radius:8px;background:linear-gradient(110deg,#eb6623,#f5a623);box-shadow:0 3px 8px rgba(235,102,35,.4);transform:rotate(-8deg);animation:lbBadge 2.4s ease-in-out infinite}
+.lbs__spark{position:absolute;z-index:4;font-size:12px;pointer-events:none;animation:lbTw 2.6s ease-in-out infinite;color:#f5a623}
+.lbs__s1{left:30px;bottom:12px}.lbs__s2{right:8px;top:10px;animation-delay:1s;color:#4caf2e}.lbs__s3{left:140px;top:4px;animation-delay:1.7s;color:#2a9fd6}
+/* текст */
+.lbs__head{display:flex;flex-direction:column;line-height:1.15;flex:none}
+.lbs__kick{font-size:11px;font-weight:900;letter-spacing:1.6px;text-transform:uppercase;background:var(--g);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:lbFlow 6s linear infinite}
+.lbs__title{font-size:20px;font-weight:900;white-space:nowrap;color:#22262b}
+.lbs__title em{font-style:normal;background:var(--hot);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:lbFlow 4s linear infinite}
+.lbs__sub{font-size:13px;font-weight:700;color:#5d6268;margin-top:2px;white-space:nowrap}
+.lbs__ts{display:none}
+/* плашки частей */
+.lbs__chips{display:flex;gap:8px;align-items:center}
+.lbs__chip{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:8px;height:50px;padding:0 14px 0 6px;border-radius:16px;font-size:13px;font-weight:700;white-space:nowrap;color:#2f3337!important;text-decoration:none!important;background:rgba(255,255,255,.9);border:1px solid rgba(76,175,46,.25);box-shadow:0 2px 8px rgba(46,155,61,.10);transition:transform .2s,box-shadow .2s}
+.lbs__chip:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(46,155,61,.18)}
+.lbs__chip small{display:block;font-size:11px;font-weight:900;color:#2e9b3d;line-height:1.1;text-transform:uppercase;letter-spacing:.6px}
+.lbs__ico{flex:none;width:52px;height:39px;background:var(--spr) 0 0/800% 100% no-repeat;transition:transform .25s}
+.lbs__chip:hover .lbs__ico{animation:lbWig .6s ease-in-out}
+.lbs__t{line-height:1.2}
+/* кнопка */
+.lbs__cta{position:relative;overflow:hidden;flex:none;display:inline-flex;align-items:center;gap:8px;height:42px;padding:0 22px;border-radius:50px;color:#fff!important;text-decoration:none!important;font-weight:800;font-size:14px;white-space:nowrap;background-image:linear-gradient(110deg,#eb6623,#f5a623,#eb6623,#d9531a,#eb6623);background-size:300% 300%;animation:lbFlow 5s ease infinite;box-shadow:0 4px 14px rgba(235,102,35,.38);transition:transform .2s,box-shadow .2s}
+.lbs__cta:after{content:"";position:absolute;top:0;left:0;width:35%;height:100%;pointer-events:none;background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.55),rgba(255,255,255,0));animation:lbShine 3.2s ease-in-out infinite}
+.lbs__cta:hover{transform:translateY(-1px);box-shadow:0 7px 20px rgba(235,102,35,.5)}
+.lbs__ar{display:inline-block;animation:lbNudge 1.6s ease-in-out infinite}
+.lbs__x{position:absolute;right:12px;top:50%;transform:translateY(-50%);width:28px;height:28px;border:0;border-radius:50%;background:transparent;color:#a3a8ae;font-size:18px;line-height:28px;cursor:pointer;z-index:5;padding:0}
+.lbs__x:hover{background:rgba(255,255,255,.9);color:#2f3337}
+@keyframes lbFlow{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+@keyframes lbShine{0%,55%{transform:translateX(-130%) skewX(-20deg)}100%{transform:translateX(330%) skewX(-20deg)}}
+@keyframes lbTw{0%,100%{opacity:.15;transform:scale(.6) rotate(0)}50%{opacity:1;transform:scale(1.1) rotate(20deg)}}
+@keyframes lbA1{0%,100%{transform:translate(0,0)}50%{transform:translate(120px,6px)}}
+@keyframes lbA2{0%,100%{transform:translate(0,0)}50%{transform:translate(-140px,-4px)}}
+@keyframes lbNudge{0%,100%{transform:translateX(0)}50%{transform:translateX(3px)}}
+@keyframes lbBob{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-4px) rotate(-1.5deg)}}
+@keyframes lbGlow{0%,100%{transform:scaleX(1);opacity:1}50%{transform:scaleX(.9);opacity:.75}}
+@keyframes lbOut{to{opacity:0;transform:translateY(10px) scale(.6)}}
+@keyframes lbIn{from{opacity:0;transform:translateY(14px) scale(.5) rotate(-6deg)}to{opacity:1;transform:none}}
+@keyframes lbBadge{0%,100%{transform:rotate(-8deg) scale(1)}50%{transform:rotate(-4deg) scale(1.08)}}
+@keyframes lbWig{0%,100%{transform:rotate(0)}25%{transform:rotate(-8deg) translateY(-2px)}75%{transform:rotate(6deg)}}
+@keyframes lbRise{0%{opacity:0;transform:translateY(0) rotate(0)}10%{opacity:.55}70%{opacity:.4}100%{opacity:0;transform:translateY(-100px) rotate(160deg)}}
+@media (max-width:1240px){.lbs__sub{display:none}}
+@media (max-width:1160px){.lbs__chips{display:none}}
+@media (max-width:960px){.lbs{position:relative}}
+@media (max-width:860px){
+.lbs__in{min-height:64px;gap:10px;padding:6px 38px 6px 8px;justify-content:flex-start}
+.lbs__stage{order:0;width:74px;height:58px}
+.lbs__m--l,.lbs__m--r,.lbs__s1,.lbs__s3,.lbs__glow{display:none}
+.lbs__m--c{left:0;width:74px;height:55px;bottom:2px}
+.lbs__new{left:-2px;top:0;font-size:9px;padding:3px 6px 2px}
+.lbs__head{order:1;flex:1 1 0;min-width:0}
+.lbs__title{white-space:normal;font-size:15px}
+.lbs__kick{white-space:nowrap;font-size:10px}
+.lbs__tl{display:none}.lbs__ts{display:inline}
+.lbs__bricks b:nth-child(n+4){display:none}}
+@media (max-width:380px){.lbs__kn{display:none}.lbs__stage{width:62px}.lbs__m--c{width:62px;height:47px}}
+@media (prefers-reduced-motion:reduce){.lbs *,.lbs:before{animation:none!important}}
+</style> <style>html.lbp-on .t-menu-base_positionabsolute,html.lbp-on .t-menu-base_positionfixed{top:var(--lbp-h,0px)!important}</style>  <!-- LB-PROMO END -->
