@@ -90,7 +90,7 @@
   'background:radial-gradient(circle at 12px 12px,rgba(255,255,255,.05) 5px,transparent 6px) 0 0/24px 24px,linear-gradient(90deg,#41444d,#2b2d33)}' +
   '#lbbf .lbbf-vis{position:relative;width:56px;height:46px;flex:0 0 56px}#lbbf .lbbf-vis .lbbf-cv{width:40px;height:40px;border-radius:7px;left:0;top:4px;transform:rotate(-8deg)}' +
   '#lbbf .lbbf-vis .lbbf-cv+.lbbf-cv{left:14px;top:2px;transform:rotate(7deg)}' +
-  '#lbbf .lbbf-t{flex:1;min-width:0;line-height:1.25}#lbbf .lbbf-t b{font-size:19px;font-weight:900;color:#F59F00;margin-right:5px}#lbbf .lbbf-t span{font-size:13px}' +
+  '#lbbf .lbbf-t{flex:1;min-width:0;line-height:1.25;white-space:nowrap;overflow:hidden}#lbbf .lbbf-t b{font-size:18px;font-weight:900;color:#F59F00;margin-right:4px}#lbbf .lbbf-t span{font-size:12.5px}' +
   '#lbbf .lbbf-t div{font-size:11.5px;color:#c3c5cc;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-variant-numeric:tabular-nums}' +
   '#lbbf .lbbf-go{background:#F59F00;border-radius:9px;padding:9px 12px;font-weight:800;font-size:13px}' +
   'body.lbbf-on .lb-chatbtn{bottom:84px!important}}' +
@@ -153,7 +153,7 @@
       '<a class="lbbf-btn" href="' + CFG.catalog + '">Выбрать материалы</a>' +
       '<a class="lbbf-tl" href="#" data-lbbf-terms>Условия акции</a></div>' +
       '<a class="lbbf-mb" href="' + CFG.catalog + '"><div class="lbbf-vis">' + cv('', covers[0]) + cv('', covers[1]) + '</div>' +
-      '<div class="lbbf-t"><b>1+1=3</b><span>третий в подарок</span><div>Чёрная пятница · <span data-txt></span></div></div>' +
+      '<div class="lbbf-t"><b>1+1=3</b><span>третий в подарок</span><div>ещё <span data-txt></span></div></div>' +
       '<span class="lbbf-i" data-lbbf-terms title="Условия акции">i</span><span class="lbbf-go">Выбрать</span></a>';
     document.body.appendChild(root);
     document.body.classList.add('lbbf-on');
