@@ -9,9 +9,10 @@
 .nym .vid video{display:block;width:100%;height:100%;object-fit:cover}
 .nym .vtag{text-align:center;font-size:13px;font-weight:700;color:#5B6B80;margin-top:10px}
 .nym .snow{position:absolute;inset:0;pointer-events:none;z-index:0}
-.nym .snow i{position:absolute;top:-12px;border-radius:50%;background:#fff;box-shadow:0 0 6px rgba(140,190,230,.9);animation:nymFall linear infinite}
+.nym .snow i{position:absolute;top:-12px;border-radius:50%;background:#fff;box-shadow:0 0 0 1px rgba(170,205,235,.55),0 0 8px rgba(120,175,225,.9);animation:nymFall linear infinite}
 @keyframes nymFall{0%{transform:translate3d(0,-20px,0)}50%{transform:translate3d(18px,50vh,0)}100%{transform:translate3d(-6px,110vh,0)}}
 .nym .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:32px}
+.nym .card.m1{--ct:#1683CF;--t:#EAF6FF}
 .nym .card{background:var(--t);border-radius:24px;padding:14px 14px 18px;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
 .nym .card:hover{transform:translateY(-4px);box-shadow:0 18px 34px -22px rgba(20,33,61,.45)}
 .nym .card .im{background:#fff;border-radius:18px;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;overflow:hidden}
