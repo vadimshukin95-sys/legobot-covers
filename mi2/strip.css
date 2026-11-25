@@ -111,3 +111,6 @@
  .lbs.lbs--price .lbs__kn{display:none}}
 /* меню Тильды сдвигается под строку (только компьютер) */
 html.lbp-on .t-menu-base_positionabsolute,html.lbp-on .t-menu-base_positionfixed{top:var(--lbp-h,0px)!important}
+
+/* корзина не прячется под плашку: сдвиг на видимую высоту плашки (переменная --lbs-cart из strip.js) */
+html.lbp-on .t706__carticon{margin-top:var(--lbs-cart,0px)}
