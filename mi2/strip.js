@@ -62,10 +62,13 @@
     function cart() { raf = 0; R.style.setProperty('--lbs-cart', Math.max(0, Math.round(el.getBoundingClientRect().bottom)) + 'px'); }
     function onScroll() { if (!raf) raf = requestAnimationFrame(cart); }
     function fit() { R.style.setProperty('--lbp-h', (window.innerWidth > 960 ? el.offsetHeight : 0) + 'px'); cart(); }
-    function off() { R.classList.remove('lbp-on'); R.style.removeProperty('--lbp-h'); R.style.removeProperty('--lbs-cart'); window.removeEventListener('resize', fit); window.removeEventListener('scroll', onScroll); clearInterval(tick); clearInterval(rot); }
+    function off() { R.classList.remove('lbp-on'); R.style.removeProperty('--lbp-h'); R.style.removeProperty('--lbs-cart'); window.removeEventListener('resize', fit); window.removeEventListener('scroll', onScroll); if (ro) ro.disconnect(); clearInterval(tick); clearInterval(rot); }
     function close() { el.parentNode && el.parentNode.removeChild(el); off(); }
     R.classList.add('lbp-on'); fit(); window.addEventListener('resize', fit); window.addEventListener('scroll', onScroll, { passive: true });
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+    /* высота плашки меняется, когда догружаются стили и шрифты — пересчитываем сдвиг меню и корзины */
+    var ro = window.ResizeObserver ? new ResizeObserver(fit) : null; if (ro) ro.observe(el);
+    [600, 1500, 3500].forEach(function (ms) { setTimeout(function () { if (el.parentNode) fit(); }, ms); });
     [].forEach.call(el.querySelectorAll('a[data-goal]'), function (a) {
       a.href = P.url;
       a.addEventListener('click', function () { try { window.ym && ym(P.metrika, 'reachGoal', 'strip_' + P.id, { el: a.getAttribute('data-goal') }); } catch (e) {} });
