@@ -13,7 +13,7 @@
     showUntil: '2026-12-31T23:59:59+03:00',             // после спеццены строка остаётся просто «Новинкой»; новогодняя строка заменит её
     url: 'https://legobot.ru/kompl/tproduct/4598312901-431656117803-masterskaya-izobretatelya-chast-2-kurs-w',
     sprite: 'https://cdn.jsdelivr.net/gh/vadimshukin95-sys/legobot-covers@8da947e/mi2/mi2_models.png',
-    css: 'https://cdn.jsdelivr.net/gh/vadimshukin95-sys/legobot-covers@8da947e/mi2/strip.css',
+    css: 'https://cdn.jsdelivr.net/gh/vadimshukin95-sys/legobot-covers@b4d8f84/mi2/strip.css',
     exclude: ['/app'],
     metrika: 89718571
   };
@@ -57,10 +57,14 @@
     var el = box.firstElementChild;
     var root = document.getElementById('allrecords') || document.body;
     root.insertBefore(el, root.firstChild); R.classList.remove('lbp-pre');
-    function fit() { R.style.setProperty('--lbp-h', (window.innerWidth > 960 ? el.offsetHeight : 0) + 'px'); }
-    function off() { R.classList.remove('lbp-on'); R.style.removeProperty('--lbp-h'); window.removeEventListener('resize', fit); clearInterval(tick); clearInterval(rot); }
+    /* корзина Тильды (фиксированная иконка справа сверху) сдвигается под плашку на столько, сколько плашки видно */
+    var raf = 0;
+    function cart() { raf = 0; R.style.setProperty('--lbs-cart', Math.max(0, Math.round(el.getBoundingClientRect().bottom)) + 'px'); }
+    function onScroll() { if (!raf) raf = requestAnimationFrame(cart); }
+    function fit() { R.style.setProperty('--lbp-h', (window.innerWidth > 960 ? el.offsetHeight : 0) + 'px'); cart(); }
+    function off() { R.classList.remove('lbp-on'); R.style.removeProperty('--lbp-h'); R.style.removeProperty('--lbs-cart'); window.removeEventListener('resize', fit); window.removeEventListener('scroll', onScroll); clearInterval(tick); clearInterval(rot); }
     function close() { el.parentNode && el.parentNode.removeChild(el); off(); }
-    R.classList.add('lbp-on'); fit(); window.addEventListener('resize', fit);
+    R.classList.add('lbp-on'); fit(); window.addEventListener('resize', fit); window.addEventListener('scroll', onScroll, { passive: true });
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
     [].forEach.call(el.querySelectorAll('a[data-goal]'), function (a) {
       a.href = P.url;
